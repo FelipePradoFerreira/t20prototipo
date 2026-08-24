@@ -1,6 +1,6 @@
 # T20 Protótipo
 
-[![GitHub Pages](https://felipepradoferreira.github.io/t20prototipo/)
+[![GitHub Pages](https://felipepradoferreira.github.io/t20prototipo/)]
 
 Um aplicativo web para recordação de campanhas, guia de criação básico de T20.
 
