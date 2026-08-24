@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testes - Guia T20</title>
+    <link rel="stylesheet" href="/styles/general-styles.css" />
+</head>
+<body>
+    <!-- Placeholder para o Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <div class="container">
+            <!-- ============================================ -->
+            <!-- TÍTULO DA PÁGINA -->
+            <!-- ============================================ -->
+            <div class="page-header">
+                <h1>Testes</h1>
+                <div class="title-divider"></div>
+                <p class="title-subtitle">Página para validar novos elementos e estilos.</p>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 1: CORES E PALETA -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>🎨 Paleta de Cores</h2>
+                <p class="section-description">Cores principais do tema, todas baseadas nas variáveis CSS.</p>
+                
+                <div class="general-grid max-4">
+                    <div class="general-item">
+                        <h3>Cores Douradas</h3>
+                        <div>
+                            <span class="color-swatch color-swatch-gold"></span>
+                            <span class="color-swatch color-swatch-gold-dark"></span>
+                        </div>
+                        <p><span class="highlight-gold">--gold</span> e <span class="highlight-gold">--gold-dark</span></p>
+                    </div>
+                    
+                    <div class="general-item">
+                        <h3>Cores Prateadas</h3>
+                        <div>
+                            <span class="color-swatch color-swatch-silver"></span>
+                            <span class="color-swatch color-swatch-silver-dark"></span>
+                        </div>
+                        <p><span class="highlight-silver">--silver</span> e <span class="highlight-silver">--silver-dark</span></p>
+                    </div>
+                    
+                    <div class="general-item">
+                        <h3>Cores de Fundo</h3>
+                        <div>
+                            <span class="color-swatch color-swatch-bg-primary"></span>
+                            <span class="color-swatch color-swatch-bg-card"></span>
+                            <span class="color-swatch color-swatch-bg-header"></span>
+                        </div>
+                        <p>--bg-primary, --bg-card, --bg-header</p>
+                    </div>
+                    
+                    <div class="general-item">
+                        <h3>Cores de Texto</h3>
+                        <div>
+                            <span class="color-swatch color-swatch-text-light"></span>
+                            <span class="color-swatch color-swatch-text-muted"></span>
+                        </div>
+                        <p>--text-light, --text-muted</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 2: TIPOGRAFIA -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Tipografia</h2>
+                <p class="section-description">Fontes e estilos de texto disponíveis.</p>
+                
+                <div class="general-grid max-3">
+                    <div class="general-item">
+                        <h3>Títulos</h3>
+                        <div class="general-example">
+                            <h1 style="font-size: 1.5rem; color: var(--gold); margin: 0;">Título H1</h1>
+                            <h2 style="font-size: 1.3rem; color: var(--gold); margin: 0.5rem 0 0 0;">Título H2</h2>
+                            <h3 style="font-size: 1.1rem; color: var(--gold); margin: 0.5rem 0 0 0;">Título H3</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="general-item">
+                        <h3>Destaques</h3>
+                        <div class="general-example">
+                            <p><span class="highlight-gold">Texto dourado</span> para destaque principal.</p>
+                            <p><span class="highlight-silver">Texto prateado</span> para destaque secundário.</p>
+                            <p><span class="text-muted">Texto acinzentado</span> para informações complementares.</p>
+                        </div>
+                    </div>
+
+                    <div class="general-item">
+                        <h3>Enfeites de Título</h3>
+                        <div class="general-example">
+                            <p style="color: var(--gold); font-size: 1.2rem; letter-spacing: 0.2rem;">
+                                ── ₪ Exemplo ₪ ──
+                            </p>
+                            <p style="color: var(--text-muted); font-size: 0.8rem;">
+                                Usado para títulos de raças e seções especiais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 3: CAROUSEL DE ATRIBUTOS -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Carousel de Atributos</h2>
+                <p class="section-description">Carousel com navegação por setas, arraste e degrades nas bordas.</p>
+                
+                <div class="atributos-carousel" id="atributos-carousel">
+                    <button class="carousel-btn prev" id="atributos-prev" aria-label="Anterior">〈</button>
+                    <div class="carousel-track" id="atributos-track">
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">⚔</div>
+                                <h3>Força • FOR</h3>
+                                <p>Seu poder muscular. A Força é aplicada em testes de Atletismo e Luta; rolagens de dano corpo a corpo ou com armas de arremesso.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">⌖</div>
+                                <h3>Destreza • DES</h3>
+                                <p>Sua agilidade, reflexos, equilíbrio e coordenação motora. A Destreza é aplicada na Defesa e em testes de Acrobacia, Furtividade e Pontaria.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">❤</div>
+                                <h3>Constituição • CON</h3>
+                                <p>Sua saúde e vigor. A Constituição é aplicada aos pontos de vida iniciais e por nível e em testes de Fortitude.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">△</div>
+                                <h3>Inteligência • INT</h3>
+                                <p>Sua capacidade de raciocínio, memória e educação. A Inteligência é aplicada em testes de Conhecimento, Investigação e Misticismo.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">👁</div>
+                                <h3>Sabedoria • SAB</h3>
+                                <p>Sua observação, ponderação e determinação. A Sabedoria é aplicada em testes de Percepção, Intuição e Vontade.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">✦</div>
+                                <h3>Carisma • CAR</h3>
+                                <p>Sua força de personalidade e capacidade de persuasão. O Carisma é aplicado em testes de Diplomacia, Enganação e Intimidação.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" id="atributos-next" aria-label="Próximo">〉</button>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 4: CAROUSEL DE IMAGENS -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Carousel de Imagens</h2>
+                <p class="section-description">Carousel com navegação entre raças, crédito do autor e degrades nas bordas.</p>
+                
+                <div class="raca-imagem-carousel" id="raca-imagem-carousel">
+                    <button class="carousel-btn prev" id="imagem-prev" aria-label="Anterior">〈</button>
+                    <div class="carousel-track" id="imagem-track">
+                        <div class="carousel-slide">
+                            <img src="/imgs/banner/Humano.jpg" alt="Humano" />
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/imgs/banner/Barghest.jpg" alt="Barghest" />
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" id="imagem-next" aria-label="Próximo">〉</button>
+                    
+                    <div class="credito-autor" id="credito-autor">
+                        Autor: <a href="#" id="credito-link" target="_blank">Artista</a>
+                    </div>
+                    
+                    <div class="carousel-dots" id="imagem-dots"></div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 5: DROPDOWN EXPANSÍVEL -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Dropdown Expansível</h2>
+                <p class="section-description">Barra expansível que cobre o conteúdo abaixo ao ser aberta.</p>
+                
+                <div style="position: relative; max-width: 800px; margin: 0 auto;">
+                    <div class="raca-dropdown" id="raca-dropdown">
+                        <div class="raca-dropdown-header" id="dropdown-header">
+                            <span>Lista de Raças</span>
+                            <span class="seta" id="dropdown-seta">▼</span>
+                        </div>
+                        <div class="raca-dropdown-content" id="dropdown-content">
+                            <div class="raca-dropdown-item active" data-raca="humano">
+                                <span>Humano</span>
+                                <span class="tag tag-silver">+1 em três atributos</span>
+                            </div>
+                            <div class="raca-dropdown-item" data-raca="anao">
+                                <span>Anão</span>
+                                <span class="tag tag-silver">Con +2, Sab +1, Des –1</span>
+                            </div>
+                            <div class="raca-dropdown-item" data-raca="elfo">
+                                <span>Elfo</span>
+                                <span class="tag tag-silver">Des +2, Int +1, Con –1</span>
+                            </div>
+                            <div class="raca-dropdown-item" data-raca="golem">
+                                <span>Golem</span>
+                                <span class="tag tag-silver">Con +2, Sab +1, Car –2</span>
+                            </div>
+                            <div class="raca-dropdown-item" data-raca="qareen">
+                                <span>Qareen</span>
+                                <span class="tag tag-silver">Car +2, Sab +1, Con –1</span>
+                            </div>
+                            <div class="raca-dropdown-item" data-raca="silfide">
+                                <span>Sílfide</span>
+                                <span class="tag tag-silver">Des +2, Sab +1, For –1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 6: GRID DE INFORMAÇÕES -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Grid de Informações</h2>
+                <p class="section-description">Grid 2 colunas para informações básicas e poderes de raça.</p>
+                
+                <!-- Grid 2 colunas (com poderes) -->
+                <h3 class="general-section-subtitle">Grid 2 colunas (com poderes)</h3>
+                <div class="raca-info-grid" id="raca-info-grid">
+                    <div class="raca-info-col">
+                        <h4>✦ Informações</h4>
+                        <p>Os humanos são a raça mais comum e adaptável de Arton. Sua versatilidade e determinação os tornam capazes de se destacar em qualquer caminho.</p>
+                        <div class="modificadores-box">
+                            <p><strong style="color: var(--gold);">Modificadores:</strong> +1 em três atributos diferentes</p>
+                        </div>
+                        <h4 style="margin-top: 1rem;">⚔ Habilidades</h4>
+                        <div class="raca-habilidade-item">
+                            <span class="bullet">✦</span>
+                            <span><strong>Adaptável:</strong> Você recebe +2 em uma perícia de sua escolha.</span>
+                        </div>
+                        <div class="raca-habilidade-item">
+                            <span class="bullet">✦</span>
+                            <span><strong>Versátil:</strong> Você recebe um poder geral adicional no 1º nível.</span>
+                        </div>
+                        <div class="raca-habilidade-item">
+                            <span class="bullet">✦</span>
+                            <span><strong>Determinado:</strong> Uma vez por dia, você pode rolar novamente um teste de resistência falho.</span>
+                        </div>
+                    </div>
+                    <div class="raca-info-col" id="poderes-col">
+                        <h4>✦ Poderes de Raça</h4>
+                        <div class="raca-poder-lista" id="raca-poderes">
+                            <div class="raca-poder-item">
+                                <span class="poder-nome">✦ Espírito Indomável</span>
+                                <span class="poder-descricao">Você recebe +2 em testes de Vontade contra efeitos de medo e intimidação.</span>
+                            </div>
+                            <div class="raca-poder-item">
+                                <span class="poder-nome">✦ Linhagem Heróica</span>
+                                <span class="poder-descricao">Uma vez por dia, você pode rolar novamente um teste de perícia falho.</span>
+                            </div>
+                            <div class="raca-poder-item">
+                                <span class="poder-nome">✦ Determinação Humana</span>
+                                <span class="poder-descricao">Quando você falha em um teste de resistência, pode gastar 2 PM para rolar novamente.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid 1 coluna (sem poderes) -->
+                <h3 class="general-section-subtitle" style="margin-top: 2rem;">Grid 1 coluna (sem poderes)</h3>
+                <div class="raca-info-grid single" id="raca-info-grid-single">
+                    <div class="raca-info-col">
+                        <h4>✦ Informações</h4>
+                        <p>Os anões são um povo robusto e resistente, conhecidos por sua habilidade com a forja e sua teimosia lendária.</p>
+                        <div class="modificadores-box">
+                            <p><strong style="color: var(--gold);">Modificadores:</strong> Con +2, Sab +1, Des –1</p>
+                        </div>
+                        <h4 style="margin-top: 1rem;">⚔ Habilidades</h4>
+                        <div class="raca-habilidade-item">
+                            <span class="bullet">✦</span>
+                            <span><strong>Resistência Anã:</strong> Você tem resistência a veneno e +2 em testes de Fortitude contra venenos.</span>
+                        </div>
+                        <div class="raca-habilidade-item">
+                            <span class="bullet">✦</span>
+                            <span><strong>Visão no Escuro:</strong> Você enxerga no escuro como se fosse luz plena até 30m.</span>
+                        </div>
+                        <div class="raca-habilidade-item">
+                            <span class="bullet">✦</span>
+                            <span><strong>Estabilidade:</strong> Você recebe +2 em testes para resistir a empurrões e derrubamentos.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 7: TABELAS -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>📊 Tabelas</h2>
+                <p class="section-description">Teste de diferentes configurações de tabela.</p>
+                
+                <!-- Tabela Padrão -->
+                <h3 class="general-section-subtitle">Tabela Padrão</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Categoria</th>
+                                <th class="col-center">Dano</th>
+                                <th class="col-center">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight-gold">Espada Longa</span></td>
+                                <td>Corpo a Corpo</td>
+                                <td class="col-center">1d8</td>
+                                <td class="col-center col-gold">15 T$</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-gold">Arco Longo</span></td>
+                                <td>Distância</td>
+                                <td class="col-center">1d8</td>
+                                <td class="col-center col-gold">75 T$</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-gold">Cajado</span></td>
+                                <td>Corpo a Corpo</td>
+                                <td class="col-center">1d6</td>
+                                <td class="col-center col-gold">5 T$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabela Compacta -->
+                <h3 class="general-section-subtitle">Tabela Compacta (.table-compact)</h3>
+                <div class="table-container table-compact">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Classe</th>
+                                <th>PV/Nível</th>
+                                <th>Tipo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight-gold">Bárbaro</span></td>
+                                <td class="col-center col-gold">1d12</td>
+                                <td><span class="tag tag-gold">Guerreiro</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-gold">Mago</span></td>
+                                <td class="col-center col-gold">1d6</td>
+                                <td><span class="tag tag-blue">Arcano</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-gold">Ladino</span></td>
+                                <td class="col-center col-gold">1d6</td>
+                                <td><span class="tag tag-silver">Especialista</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabela com scroll horizontal -->
+                <h3 class="general-section-subtitle">Tabela com scroll horizontal</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Categoria</th>
+                                <th class="col-center">Dano</th>
+                                <th class="col-center">Crítico</th>
+                                <th class="col-center">Alcance</th>
+                                <th class="col-center">Peso</th>
+                                <th class="col-center">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight-gold">Espada Longa</span></td>
+                                <td>Corpo a Corpo</td>
+                                <td class="col-center">1d8</td>
+                                <td class="col-center">19-20 x2</td>
+                                <td class="col-center">1,5m</td>
+                                <td class="col-center">2kg</td>
+                                <td class="col-center col-gold">15 T$</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-gold">Arco Longo</span></td>
+                                <td>Distância</td>
+                                <td class="col-center">1d8</td>
+                                <td class="col-center">20 x3</td>
+                                <td class="col-center">30m</td>
+                                <td class="col-center">1,5kg</td>
+                                <td class="col-center col-gold">75 T$</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-gold">Cajado</span></td>
+                                <td>Corpo a Corpo</td>
+                                <td class="col-center">1d6</td>
+                                <td class="col-center">20 x2</td>
+                                <td class="col-center">1,8m</td>
+                                <td class="col-center">2kg</td>
+                                <td class="col-center col-gold">5 T$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 8: BOTÕES -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>🔘 Botões</h2>
+                <p class="section-description">Estilos de botão disponíveis.</p>
+                
+                <div class="general-grid max-2">
+                    <div class="general-item">
+                        <h3>Botão Primário</h3>
+                        <div class="general-example">
+                            <a href="#" class="cta-btn primary" style="display: inline-block; margin-bottom: 0.5rem;">Explorar</a>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">.cta-btn.primary</p>
+                        </div>
+                    </div>
+                    
+                    <div class="general-item">
+                        <h3>Botão Secundário</h3>
+                        <div class="general-example">
+                            <a href="#" class="cta-btn secondary" style="display: inline-block; margin-bottom: 0.5rem;">Sobre</a>
+                            <p style="font-size: 0.75rem; color: var(--text-muted);">.cta-btn.secondary</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 9: TAGS -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>🏷️ Tags</h2>
+                <p class="section-description">Tags para categorização e destaque.</p>
+                
+                <div class="general-grid max-2">
+                    <div class="general-item">
+                        <h3>Tags Disponíveis</h3>
+                        <div class="general-example" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <span class="tag tag-gold">Guerreiro</span>
+                            <span class="tag tag-silver">Especialista</span>
+                            <span class="tag tag-blue">Arcano</span>
+                            <span class="tag tag-gold">Divino</span>
+                            <span class="tag tag-silver">Perícia</span>
+                            <span class="tag tag-blue">Magia</span>
+                        </div>
+                    </div>
+
+                    <div class="general-item">
+                        <h3>Tags em Cards</h3>
+                        <div class="feature-card" style="padding: 1rem;">
+                            <h3 style="font-size: 1rem;">Exemplo</h3>
+                            <p style="font-size: 0.8rem;">Tags podem ser usadas em qualquer lugar.</p>
+                            <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tag tag-gold">Destaque</span>
+                                <span class="tag tag-silver">Comum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO 10: GRIDS -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>📐 Grids</h2>
+                <p class="section-description">Diferentes configurações de grid disponíveis.</p>
+                
+                <h3 class="general-section-subtitle">Grid 2 colunas (.two-col)</h3>
+                <div class="general-grid two-col">
+                    <div class="general-item">
+                        <h3>Coluna 1</h3>
+                        <p>Conteúdo da primeira coluna. Esta grid é ideal para layouts lado a lado.</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Coluna 2</h3>
+                        <p>Conteúdo da segunda coluna. Em telas menores, vira 1 coluna.</p>
+                    </div>
+                </div>
+
+                <h3 class="general-section-subtitle" style="margin-top: 2rem;">Grid 3 colunas (.max-3)</h3>
+                <div class="general-grid max-3">
+                    <div class="general-item">
+                        <h3>Item 1</h3>
+                        <p>Conteúdo do primeiro item.</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 2</h3>
+                        <p>Conteúdo do segundo item.</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 3</h3>
+                        <p>Conteúdo do terceiro item.</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 4</h3>
+                        <p>Conteúdo do quarto item (vai para próxima linha).</p>
+                    </div>
+                </div>
+
+                <h3 class="general-section-subtitle" style="margin-top: 2rem;">Grid 4 colunas (.max-4)</h3>
+                <div class="general-grid max-4">
+                    <div class="general-item">
+                        <h3>Item 1</h3>
+                        <p>Conteúdo</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 2</h3>
+                        <p>Conteúdo</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 3</h3>
+                        <p>Conteúdo</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 4</h3>
+                        <p>Conteúdo</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 5</h3>
+                        <p>Conteúdo</p>
+                    </div>
+                    <div class="general-item">
+                        <h3>Item 6</h3>
+                        <p>Conteúdo</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Placeholder para o Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="/scripts/components.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/races.js"></script>
+</body>
+</html>

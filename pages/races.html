@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raças - Guia T20</title>
+    <link rel="stylesheet" href="/styles/general-styles.css" />
+</head>
+<body>
+    <!-- Placeholder para o Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <div class="container">
+            <!-- ============================================ -->
+            <!-- TÍTULO DA PÁGINA -->
+            <!-- ============================================ -->
+            <div class="page-header">
+                <h1>Raças</h1>
+                <div class="title-divider"></div>
+                <p class="title-subtitle">Dê forma ao seu receptáculo.</p>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- Definições iniciais para os jogadores -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Escolhendo uma raça</h2>
+                <p class="section-description">
+                    Sua raça não definirá apenas a aparência do personagem, mas também habilidades básicas que poderão impactar sua forma de jogar.
+                    <br>Seus atributos iniciais também são afetados por sua escolha nessa seção, então escolha com sabedoria.
+                </p>
+
+                <h2 style="margin-top: 2rem;">Qual a importância dos meus atributos?</h2>
+                <p class="section-description">
+                    Cada atributo governa uma aspecto específico do personagem, influenciando suas habilidades e desempenho em diferentes situações.
+                    <br>Veja-os abaixo (informações extraídas diretamente do livro básico do sistema T20):
+                </p>
+
+                <!-- Carousel de Atributos -->
+                <div class="atributos-carousel" id="atributos-carousel">
+                    <button class="carousel-btn prev" id="atributos-prev" aria-label="Anterior">〈</button>
+                    <div class="carousel-track" id="atributos-track">
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">⚔</div>
+                                <h3>Força • FOR</h3>
+                                <p>Seu poder muscular. A Força é aplicada em testes de Atletismo e Luta; rolagens de dano corpo a corpo ou com armas de arremesso, e testes de Força para levantar peso e atos similares.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">⌖</div>
+                                <h3>Destreza • DES</h3>
+                                <p>Sua agilidade, reflexos, equilíbrio e coordenação motora. A Destreza é aplicada na Defesa e em testes de Acrobacia, Cavalgar, Furtividade, Iniciativa, Ladinagem, Pilotagem, Pontaria e Reflexos.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">❤</div>
+                                <h3>Constituição • CON</h3>
+                                <p>Sua saúde e vigor. A Constituição é aplicada aos pontos de vida iniciais e por nível e em testes de Fortitude. Se a Constituição muda, seus pontos de vida aumentam ou diminuem retroativamente de acordo.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">△</div>
+                                <h3>Inteligência • INT</h3>
+                                <p>Sua capacidade de raciocínio, memória e educação. A Inteligência é aplicada em testes de Conhecimento, Guerra, Investigação, Misticismo, Nobreza e Ofício. Além disso, se sua Inteligência for positiva, você recebe um número de perícias treinadas igual ao valor dela (não precisam ser da sua classe).</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">👁</div>
+                                <h3>Sabedoria • SAB</h3>
+                                <p>Sua observação, ponderação e determinação. A Sabedoria é aplicada em testes de Cura, Intuição, Percepção, Religião, Sobrevivência e Vontade.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="feature-card">
+                                <div class="feature-icon">✦</div>
+                                <h3>Carisma • CAR</h3>
+                                <p>Sua força de personalidade e capacidade de persuasão, além de uma mistura de simpatia e beleza. O Carisma é aplicado em testes de Adestramento, Atuação, Diplomacia, Enganação, Intimidação e Jogatina.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" id="atributos-next" aria-label="Próximo">〉</button>
+                    <div class="carousel-dots" id="atributos-dots"></div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- Lista de Raças -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Raças disponíveis</h2>
+                <p class="section-description">
+                    Abaixo estão listadas as raças disponíveis no sistema T20, com suas características e habilidades especiais. Escolha a que melhor se adapta ao seu estilo de jogo e à história do seu personagem.
+                </p>
+
+                <!-- ============================================ -->
+                <!-- TÍTULO DA RAÇA COM ENFEITES -->
+                <!-- ============================================ -->
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <h2 id="raca-titulo" style="color: var(--gold); font-size: 2rem; letter-spacing: 0.3rem; font-weight: 400;">
+                        ── ₪ Humano ₪ ──
+                    </h2>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- CAROUSEL DE IMAGENS + BARRA EXPANSÍVEL -->
+                <!-- ============================================ -->
+                <div style="position: relative;">
+
+                    <!-- Carousel de Imagens -->
+                    <div class="raca-imagem-carousel" id="raca-imagem-carousel">
+                        <button class="carousel-btn prev" id="imagem-prev" aria-label="Anterior">〈</button>
+                        <div class="carousel-track" id="imagem-track">
+                            <!-- Slides serão inseridos via JS -->
+                        </div>
+                        <button class="carousel-btn next" id="imagem-next" aria-label="Próximo">〉</button>
+
+                        <!-- Crédito do Autor -->
+                        <div class="credito-autor" id="credito-autor">
+                            Autor: <a href="#" id="credito-link" target="_blank">Artista</a>
+                        </div>
+
+                        <!-- Dots -->
+                        <div class="carousel-dots" id="imagem-dots" style="position: absolute; bottom: -32px; left: 0; right: 0;"></div>
+                    </div>
+
+                    <!-- Barra Expansível (Dropdown) -->
+                    <div class="raca-dropdown" id="raca-dropdown">
+                        <div class="raca-dropdown-header" id="dropdown-header">
+                            <span>Lista de Raças</span>
+                            <span class="seta" id="dropdown-seta">▼</span>
+                        </div>
+                        <div class="raca-dropdown-content" id="dropdown-content">
+                            <!-- Itens inseridos via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- GRID DE INFORMAÇÕES DA RAÇA -->
+                <!-- ============================================ -->
+                <div class="raca-info-grid" id="raca-info-grid">
+                    <!-- Coluna Esquerda: Informações Básicas -->
+                    <div class="raca-info-col" id="info-col">
+                        <h4>✦ Informações</h4>
+                        <p id="raca-descricao">
+                            Os humanos são a raça mais comum e adaptável de Arton. Sua versatilidade e determinação os tornam capazes de se destacar em qualquer caminho que escolherem.
+                        </p>
+                        <div class="modificadores-box">
+                            <p><strong style="color: var(--gold);">Modificadores:</strong> <span id="raca-modificadores">+1 em três atributos diferentes</span></p>
+                        </div>
+                        <h4 style="margin-top: 1rem;">⚔ Habilidades</h4>
+                        <div id="raca-habilidades">
+                            <div class="raca-habilidade-item">
+                                <span class="bullet">✦</span>
+                                <span><strong>Adaptável:</strong> Você recebe +2 em uma perícia de sua escolha.</span>
+                            </div>
+                            <div class="raca-habilidade-item">
+                                <span class="bullet">✦</span>
+                                <span><strong>Versátil:</strong> Você recebe um poder geral adicional no 1º nível.</span>
+                            </div>
+                            <div class="raca-habilidade-item">
+                                <span class="bullet">✦</span>
+                                <span><strong>Determinado:</strong> Uma vez por dia, você pode rolar novamente um teste de resistência falho.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna Direita: Poderes de Raça -->
+                    <div class="raca-info-col" id="poderes-col">
+                        <h4>✦ Poderes de Raça</h4>
+                        <div class="raca-poder-lista" id="raca-poderes">
+                            <!-- Inserido via JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Placeholder para o Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="/scripts/components.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/races.js"></script>
+</body>
+</html>
