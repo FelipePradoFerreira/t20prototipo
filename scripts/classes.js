@@ -7,12 +7,8 @@ const classesData = {
     barbaro: {
         nome: 'Bárbaro',
         descricao: 'Os bárbaros são guerreiros que canalizam sua fúria primordial para destruir inimigos. Rejeitando a civilização e suas regras, eles confiam em sua força bruta e instintos selvagens para sobreviver.',
-        atributo: 'Força',
-        pv: '1d12',
-        pericias: '4',
-        imagens: ['/imgs/banner/Humano.jpg'],
-        autor: 'ArtistaExemplo',
-        autorLink: 'https://www.artstation.com/artistaexemplo',
+        modificadores: 'Força (Principal) • PV: 1d12 • Perícias: 4',
+        imagens: [{ imagem: '/t20prototipo/imgs/banner/Temporario.jpg', autor: 'ArtistaExemplo', autorLink: 'https://www.artstation.com/artistaexemplo' }],
         habilidades: [
             { nome: 'Fúria', descricao: 'Você entra em um estado de fúria que concede +2 em ataques corpo a corpo e +2 em dano, mas reduz sua Defesa em -2.' },
             { nome: 'Instinto Selvagem', descricao: 'Você recebe +2 em testes de Percepção e Sobrevivência.' },
@@ -27,12 +23,8 @@ const classesData = {
     bardo: {
         nome: 'Bardo',
         descricao: 'Os bardos são artistas e músicos que canalizam magia através de sua arte. Inspirando aliados e confundindo inimigos, eles são mestres da versatilidade e da persuasão.',
-        atributo: 'Carisma',
-        pv: '1d8',
-        pericias: '6',
-        imagens: ['/imgs/banner/bardo-banner.jpg'],
-        autor: 'ArtistaExemplo2',
-        autorLink: 'https://www.deviantart.com/artistaexemplo2',
+        modificadores: 'Carisma (Principal) • PV: 1d8 • Perícias: 6',
+        imagens: [{ imagem: '/imgs/banner/bardo-banner.jpg', autor: 'ArtistaExemplo2', autorLink: 'https://www.deviantart.com/artistaexemplo2' }],
         habilidades: [
             { nome: 'Inspiração', descricao: 'Você pode inspirar aliados, concedendo +1 em testes de perícia ou ataque por 1 rodada.' },
             { nome: 'Música Arcana', descricao: 'Você pode lançar magias usando sua música como foco arcano.' },
@@ -46,12 +38,8 @@ const classesData = {
     clerigo: {
         nome: 'Clérigo',
         descricao: 'Os clérigos são servos divinos que canalizam o poder de sua divindade. Curandeiros, protetores e guerreiros sagrados, eles são a espada e o escudo da fé.',
-        atributo: 'Sabedoria',
-        pv: '1d8',
-        pericias: '4',
-        imagens: ['/imgs/banner/clerigo-banner.jpg'],
-        autor: 'ArtistaExemplo3',
-        autorLink: 'https://www.artstation.com/artistaexemplo3',
+        modificadores: 'Sabedoria (Principal) • PV: 1d8 • Perícias: 4',
+        imagens: [{ imagem: '/imgs/banner/clerigo-banner.jpg', autor: 'ArtistaExemplo3', autorLink: 'https://www.artstation.com/artistaexemplo3' }],
         habilidades: [
             { nome: 'Cura Divina', descricao: 'Você pode canalizar energia divina para curar aliados em alcance curto.' },
             { nome: 'Magia Divina', descricao: 'Você pode lançar magias divinas de sua divindade.' },
@@ -62,12 +50,8 @@ const classesData = {
     druida: {
         nome: 'Druida',
         descricao: 'Os druidas são guardiões da natureza que canalizam as forças da terra e dos animais. Transformando-se em bestas e controlando os elementos, eles protegem o equilíbrio natural.',
-        atributo: 'Sabedoria',
-        pv: '1d8',
-        pericias: '4',
-        imagens: ['/imgs/banner/druida-banner.jpg'],
-        autor: 'ArtistaExemplo4',
-        autorLink: 'https://www.artstation.com/artistaexemplo4',
+        modificadores: 'Sabedoria (Principal) • PV: 1d8 • Perícias: 4',
+        imagens: [{ imagem: '/imgs/banner/druida-banner.jpg', autor: 'ArtistaExemplo4', autorLink: 'https://www.artstation.com/artistaexemplo4' }],
         habilidades: [
             { nome: 'Forma Animal', descricao: 'Você pode se transformar em um animal por até 1 hora por nível.' },
             { nome: 'Magia Natural', descricao: 'Você pode lançar magias da natureza como se fossem divinas.' },
@@ -81,12 +65,8 @@ const classesData = {
     guerreiro: {
         nome: 'Guerreiro',
         descricao: 'Os guerreiros são mestres das armas e armaduras. Especialistas em combate tático, eles são a linha de frente de qualquer grupo, protegendo aliados e destruindo inimigos.',
-        atributo: 'Força ou Destreza',
-        pv: '1d10',
-        pericias: '4',
-        imagens: ['/imgs/banner/guerreiro-banner.jpg'],
-        autor: 'ArtistaExemplo5',
-        autorLink: 'https://www.artstation.com/artistaexemplo5',
+        modificadores: 'Força ou Destreza (Principal) • PV: 1d10 • Perícias: 4',
+        imagens: [{ imagem: '/imgs/banner/guerreiro-banner.jpg', autor: 'ArtistaExemplo5', autorLink: 'https://www.artstation.com/artistaexemplo5' }],
         habilidades: [
             { nome: 'Perícia Marcial', descricao: 'Você recebe +2 em testes de Luta e Pontaria.' },
             { nome: 'Postura Defensiva', descricao: 'Você pode usar uma ação para aumentar sua Defesa em +2 até o próximo turno.' },
@@ -97,12 +77,8 @@ const classesData = {
     ladino: {
         nome: 'Ladino',
         descricao: 'Os ladinos são especialistas em furtividade, precisão e versatilidade. Mestres das sombras e das armas leves, eles se destacam em missões de infiltração e eliminação.',
-        atributo: 'Destreza',
-        pv: '1d6',
-        pericias: '6',
-        imagens: ['/imgs/banner/ladino-banner.jpg'],
-        autor: 'ArtistaExemplo6',
-        autorLink: 'https://www.artstation.com/artistaexemplo6',
+        modificadores: 'Destreza (Principal) • PV: 1d6 • Perícias: 6',
+        imagens: [{ imagem: '/imgs/banner/ladino-banner.jpg', autor: 'ArtistaExemplo6', autorLink: 'https://www.artstation.com/artistaexemplo6' }],
         habilidades: [
             { nome: 'Ataque Furtivo', descricao: 'Você causa dano adicional quando ataca um inimigo desprevenido.' },
             { nome: 'Especialista', descricao: 'Você recebe +2 em Furtividade e Ladinagem.' },
@@ -116,12 +92,8 @@ const classesData = {
     mago: {
         nome: 'Mago',
         descricao: 'Os magos são estudiosos das artes arcanas, capazes de moldar a realidade com sua magia. Frágeis mas poderosos, eles controlam as forças do universo.',
-        atributo: 'Inteligência',
-        pv: '1d6',
-        pericias: '4',
-        imagens: ['/imgs/banner/mago-banner.jpg'],
-        autor: 'ArtistaExemplo7',
-        autorLink: 'https://www.artstation.com/artistaexemplo7',
+        modificadores: 'Inteligência (Principal) • PV: 1d6 • Perícias: 4',
+        imagens: [{ imagem: '/imgs/banner/mago-banner.jpg', autor: 'ArtistaExemplo7', autorLink: 'https://www.artstation.com/artistaexemplo7' }],
         habilidades: [
             { nome: 'Conhecimento Arcano', descricao: 'Você recebe +2 em testes de Conhecimento e Misticismo.' },
             { nome: 'Magia Arcana', descricao: 'Você pode lançar magias arcanas de até 4º círculo.' },
@@ -132,12 +104,8 @@ const classesData = {
     paladino: {
         nome: 'Paladino',
         descricao: 'Os paladinos são cavaleiros sagrados que unem fé e combate. Protetores dos inocentes e destruidores do mal, eles são a personificação da justiça divina.',
-        atributo: 'Carisma',
-        pv: '1d10',
-        pericias: '4',
-        imagens: ['/imgs/banner/paladino-banner.jpg'],
-        autor: 'ArtistaExemplo8',
-        autorLink: 'https://www.artstation.com/artistaexemplo8',
+        modificadores: 'Carisma (Principal) • PV: 1d10 • Perícias: 4',
+        imagens: [{ imagem: '/imgs/banner/paladino-banner.jpg', autor: 'ArtistaExemplo8', autorLink: 'https://www.artstation.com/artistaexemplo8' }],
         habilidades: [
             { nome: 'Mão Sagrada', descricao: 'Você pode curar aliados com um toque, gastando 1 PM para curar 1d8 de PV.' },
             { nome: 'Aura Protetora', descricao: 'Aliados em alcance curto recebem +1 na Defesa.' },
@@ -151,12 +119,8 @@ const classesData = {
     cassador: {
         nome: 'Caçador',
         descricao: 'Os caçadores são especialistas em rastrear e abater inimigos com precisão letal. Mestres do arco e da sobrevivência, eles são predadores natos.',
-        atributo: 'Destreza',
-        pv: '1d8',
-        pericias: '6',
-        imagens: ['/imgs/banner/cassador-banner.jpg'],
-        autor: 'ArtistaExemplo9',
-        autorLink: 'https://www.artstation.com/artistaexemplo9',
+        modificadores: 'Destreza (Principal) • PV: 1d8 • Perícias: 6',
+        imagens: [{ imagem: '/imgs/banner/cassador-banner.jpg', autor: 'ArtistaExemplo9', autorLink: 'https://www.artstation.com/artistaexemplo9' }],
         habilidades: [
             { nome: 'Rastreamento', descricao: 'Você recebe +2 em Sobrevivência e Percepção.' },
             { nome: 'Tiro Preciso', descricao: 'Você recebe +2 em Pontaria com armas de distância.' },
@@ -169,168 +133,97 @@ const classesData = {
     }
 };
 
-// ====================================================================================================================================
-// CONFIGURAÇÕES
-// ====================================================================================================================================
+// Configuração específica da página de classes
 const classeKeys = Object.keys(classesData);
 let currentClasseIndex = 0;
-let currentImageIndex = 0;
+let isUpdating = false;
 
 // ============================================
-// FUNÇÃO PARA EXIBIR CLASSE
+// FUNÇÃO PARA EXIBIR CLASSE (ESPECÍFICA)
 // ============================================
 function exibirClasse(classeId) {
-    const classe = classesData[classeId];
-    if (!classe) return;
+    if (isUpdating) return;
+    isUpdating = true;
+    
+    try {
+        const classe = classesData[classeId];
+        if (!classe) return;
 
-    // Atualiza índice atual
-    currentClasseIndex = classeKeys.indexOf(classeId);
-    currentImageIndex = 0;
+        // Atualiza título
+        const tituloEl = document.getElementById('classe-titulo');
+        if (tituloEl) tituloEl.textContent = `── ₪ ${classe.nome} ₪ ──`;
 
-    // === TÍTULO ===
-    const tituloEl = document.getElementById('classe-titulo');
-    if (tituloEl) tituloEl.textContent = `── ₪ ${classe.nome} ₪ ──`;
+        // Atualiza descrição
+        const descricaoEl = document.getElementById('classe-descricao');
+        if (descricaoEl) descricaoEl.textContent = classe.descricao;
 
-    // === CARDS: Destacar card ativo ===
-    document.querySelectorAll('.classe-card').forEach(card => {
-        card.style.borderColor = 'rgba(58, 74, 90, 0.3)';
-        card.style.boxShadow = 'none';
-        if (card.dataset.classe === classeId) {
-            card.style.borderColor = 'var(--gold)';
-            card.style.boxShadow = '0 8px 40px rgba(201, 168, 76, 0.15)';
+        // Atualiza modificadores
+        const modificadoresBox = document.getElementById('classe-modificadores-box');
+        if (modificadoresBox) {
+            modificadoresBox.innerHTML = `<p><strong style="color: var(--gold);">Modificadores:</strong> ${classe.modificadores}</p>`;
         }
-    });
 
-    // === IMAGENS (Carousel) ===
-    const track = document.getElementById('classe-imagem-track');
-    const dotsContainer = document.getElementById('classe-imagem-dots');
-    const prevBtn = document.getElementById('classe-imagem-prev');
-    const nextBtn = document.getElementById('classe-imagem-next');
-
-    if (track) {
-        track.innerHTML = classe.imagens.map(img => `
-            <div class="carousel-slide">
-                <img src="${img}" alt="${classe.nome}" />
-            </div>
-        `).join('');
-    }
-
-    // Dots - número de classes
-    if (dotsContainer) {
-        dotsContainer.innerHTML = classeKeys.map((key, i) => `
-            <span class="carousel-dot ${i === currentClasseIndex ? 'active' : ''}" data-index="${i}"></span>
-        `).join('');
-        dotsContainer.style.display = 'flex';
-    }
-
-    // === CRÉDITO DO AUTOR ===
-    const creditoLink = document.getElementById('classe-credito-link');
-    if (creditoLink) {
-        creditoLink.textContent = classe.autor || 'Artista';
-        creditoLink.href = classe.autorLink || '#';
-    }
-
-    // === INFORMAÇÕES BÁSICAS ===
-    const descricaoEl = document.getElementById('classe-descricao');
-    const atributoEl = document.getElementById('classe-atributo');
-    const pvEl = document.getElementById('classe-pv');
-    const periciasEl = document.getElementById('classe-pericias');
-    const habilidadesEl = document.getElementById('classe-habilidades');
-
-    if (descricaoEl) descricaoEl.textContent = classe.descricao;
-    if (atributoEl) atributoEl.textContent = classe.atributo;
-    if (pvEl) pvEl.textContent = classe.pv;
-    if (periciasEl) periciasEl.textContent = classe.pericias;
-
-    // === HABILIDADES ===
-    if (habilidadesEl) {
-        habilidadesEl.innerHTML = classe.habilidades.map(hab => `
-            <div class="raca-habilidade-item">
-                <span class="bullet">✦</span>
-                <span><strong>${hab.nome}:</strong> ${hab.descricao}</span>
-            </div>
-        `).join('');
-    }
-
-    // === PODERES DA CLASSE ===
-    const poderesEl = document.getElementById('classe-poderes');
-    const gridEl = document.getElementById('classe-info-grid');
-    const poderesCol = document.getElementById('classe-poderes-col');
-
-    if (poderesEl && gridEl && poderesCol) {
-        if (classe.poderes && classe.poderes.length > 0) {
-            poderesEl.innerHTML = classe.poderes.map(poder => `
-                <div class="raca-poder-item">
-                    <span class="poder-nome">✦ ${poder.nome}</span>
-                    <span class="poder-descricao">${poder.descricao}</span>
+        // Atualiza habilidades
+        const habilidadesEl = document.getElementById('classe-habilidades');
+        if (habilidadesEl && classe.habilidades) {
+            habilidadesEl.innerHTML = classe.habilidades.map(hab => `
+                <div class="raca-habilidade-item">
+                    <span class="bullet">✦</span>
+                    <span><strong>${hab.nome}:</strong> ${hab.descricao}</span>
                 </div>
             `).join('');
-            gridEl.className = 'raca-info-grid';
-            poderesCol.style.display = 'block';
-        } else {
-            poderesEl.innerHTML = '';
-            poderesCol.style.display = 'none';
-            gridEl.className = 'raca-info-grid single';
         }
-    }
 
-    // Atualiza degrades do carousel de imagens
-    const imagemContainer = document.getElementById('classe-imagem-carousel');
-    if (imagemContainer) {
-        imagemContainer.classList.add('show-left');
-        imagemContainer.classList.add('show-right');
-    }
+        // Atualiza poderes
+        const poderesEl = document.getElementById('classe-poderes');
+        const gridEl = document.getElementById('classe-info-grid');
+        const poderesCol = document.getElementById('classe-poderes-col');
 
-    // Força o reflow para ajustar a altura
-    if (track) {
-        track.innerHTML = classe.imagens.map(img => `
-            <div class="carousel-slide">
-                <img src="${img}" alt="${classe.nome}" />
-            </div>
-        `).join('');
-        track.style.transform = 'translateX(0)';
-    }
+        if (poderesEl && gridEl && poderesCol) {
+            if (classe.poderes && classe.poderes.length > 0) {
+                poderesEl.innerHTML = classe.poderes.map(poder => `
+                    <div class="raca-poder-item">
+                        <span class="poder-nome">✦ ${poder.nome}</span>
+                        <span class="poder-descricao">${poder.descricao}</span>
+                    </div>
+                `).join('');
+                gridEl.className = 'raca-info-grid';
+                poderesCol.style.display = 'block';
+            } else {
+                poderesEl.innerHTML = '';
+                poderesCol.style.display = 'none';
+                gridEl.className = 'raca-info-grid single';
+            }
+        }
 
-    // Atualiza descrição do detalhe
-    const detalheDesc = document.getElementById('classe-detalhe-desc');
-    if (detalheDesc) {
-        detalheDesc.textContent = `Veja abaixo os detalhes da classe ${classe.nome}.`;
-    }
+        // Destaca o card ativo
+        document.querySelectorAll('.classe-card').forEach(card => {
+            card.style.borderColor = 'rgba(58, 74, 90, 0.3)';
+            card.style.boxShadow = 'none';
+            if (card.dataset.classe === classeId) {
+                card.style.borderColor = 'var(--gold)';
+                card.style.boxShadow = '0 8px 40px rgba(201, 168, 76, 0.15)';
+            }
+        });
 
-    console.log(`✅ Classe "${classe.nome}" exibida com sucesso!`);
-}
+        // Atualiza índice atual
+        currentClasseIndex = classeKeys.indexOf(classeId);
 
-// ============================================
-// FUNÇÕES DO CAROUSEL DE IMAGENS
-// ============================================
+        // Atualiza descrição do detalhe
+        const detalheDesc = document.getElementById('classe-detalhe-desc');
+        if (detalheDesc) {
+            detalheDesc.textContent = `Veja abaixo os detalhes da classe ${classe.nome}.`;
+        }
 
-function nextClasseImage() {
-    if (currentClasseIndex < classeKeys.length - 1) {
-        currentClasseIndex++;
-    } else {
-        currentClasseIndex = 0;
-    }
-    exibirClasse(classeKeys[currentClasseIndex]);
-}
+        console.log(`✅ Classe "${classe.nome}" exibida com sucesso!`);
 
-function prevClasseImage() {
-    if (currentClasseIndex > 0) {
-        currentClasseIndex--;
-    } else {
-        currentClasseIndex = classeKeys.length - 1;
-    }
-    exibirClasse(classeKeys[currentClasseIndex]);
-}
-
-function goToClasseImage(index) {
-    if (index >= 0 && index < classeKeys.length) {
-        currentClasseIndex = index;
-        exibirClasse(classeKeys[index]);
+    } finally {
+        isUpdating = false;
     }
 }
 
 // ============================================
-// INICIALIZAÇÃO
+// INICIALIZAÇÃO DA PÁGINA DE CLASSES
 // ============================================
 function initClasses() {
     // === EVENTOS DOS CARDS DE CLASSE ===
@@ -338,11 +231,14 @@ function initClasses() {
         card.addEventListener('click', function() {
             const classeId = this.dataset.classe;
             if (classeId) {
+                const index = classeKeys.indexOf(classeId);
+                if (index !== -1 && window.classeImageCarousel) {
+                    window.classeImageCarousel.goToImage(index);
+                }
                 exibirClasse(classeId);
             }
         });
 
-        // Efeito hover
         card.addEventListener('mouseenter', function() {
             if (this.dataset.classe !== classeKeys[currentClasseIndex]) {
                 this.style.borderColor = 'rgba(201, 168, 76, 0.3)';
@@ -356,27 +252,36 @@ function initClasses() {
         });
     });
 
-    // === EVENTOS DO CAROUSEL DE IMAGENS ===
-    const prevBtn = document.getElementById('classe-imagem-prev');
-    const nextBtn = document.getElementById('classe-imagem-next');
-    if (prevBtn) prevBtn.addEventListener('click', prevClasseImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextClasseImage);
-
-    const dotsContainer = document.getElementById('classe-imagem-dots');
-    if (dotsContainer) {
-        dotsContainer.addEventListener('click', function(e) {
-            const dot = e.target.closest('.carousel-dot');
-            if (dot) {
-                const index = parseInt(dot.dataset.index);
-                if (!isNaN(index)) goToClasseImage(index);
+    // === INICIALIZA CAROUSEL DE IMAGENS ===
+    const imageCarousel = initImageCarousel({
+        trackId: 'classe-imagem-track',
+        prevBtnId: 'classe-imagem-prev',
+        nextBtnId: 'classe-imagem-next',
+        dotsId: 'classe-imagem-dots',
+        containerId: 'classe-imagem-carousel',
+        creditoLinkId: 'classe-credito-link',
+        items: classeKeys.map(key => ({
+            nome: classesData[key].nome,
+            imagem: classesData[key].imagens[0].imagem,
+            autor: classesData[key].imagens[0].autor,
+            autorLink: classesData[key].imagens[0].autorLink
+        })),
+        currentIndex: { value: 0 },
+        onImageChange: function(index) {
+            const classeId = classeKeys[index];
+            if (classeId && !isUpdating) {
+                exibirClasse(classeId);
             }
-        });
-    }
+        }
+    });
+
+    window.classeImageCarousel = imageCarousel;
 
     // === EXIBE A PRIMEIRA CLASSE ===
-    exibirClasse('barbaro');
-
-    console.log('✅ Página de Classes inicializada com sucesso!');
+    setTimeout(() => {
+        exibirClasse('barbaro');
+    }, 100);
 }
 
+// Inicializa quando o DOM carregar
 document.addEventListener('DOMContentLoaded', initClasses);
