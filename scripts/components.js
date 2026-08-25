@@ -9,7 +9,6 @@
 // ============================================
 function createHeader() {
     return `
-        <base href="/t20prototipo/">
         <header class="nordic-header">
             <div class="header-container">
                 <div class="logo-container">
@@ -18,13 +17,13 @@ function createHeader() {
                 </div>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="/index.html" class="nav-link">Início</a></li>
-                        <li><a href="/pages/races.html" class="nav-link">Raças</a></li>
-                        <li><a href="/pages/classes.html" class="nav-link">Classes</a></li>
-                        <li><a href="/pages/equipments.html" class="nav-link">Equipamentos</a></li>
-                        <li><a href="/pages/spells.html" class="nav-link">Magias</a></li>
-                        <li><a href="/pages/rules.html" class="nav-link">Regras</a></li>
-                        <li><a href="/pages/test.html" class="nav-link">Testes</a></li>
+                        <li><a href="/t20prototipo/index.html" class="nav-link">Início</a></li>
+                        <li><a href="/t20prototipo/pages/races.html" class="nav-link">Raças</a></li>
+                        <li><a href="/t20prototipo/pages/classes.html" class="nav-link">Classes</a></li>
+                        <li><a href="/t20prototipo/pages/equipments.html" class="nav-link">Equipamentos</a></li>
+                        <li><a href="/t20prototipo/pages/spells.html" class="nav-link">Magias</a></li>
+                        <li><a href="/t20prototipo/pages/rules.html" class="nav-link">Regras</a></li>
+                        <li><a href="/t20prototipo/pages/test.html" class="nav-link">Testes</a></li>
                     </ul>
                 </nav>
             </div>

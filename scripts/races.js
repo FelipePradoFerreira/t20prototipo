@@ -8,7 +8,7 @@ const racasData = {
         nome: 'Humano',
         descricao: 'Os humanos são a raça mais comum e adaptável de Arton. Sua versatilidade e determinação os tornam capazes de se destacar em qualquer caminho que escolherem.',
         modificadores: '+1 em três atributos diferentes',
-        imagens: ['/imgs/banner/Humano.jpg'],
+        imagens: ['/t20prototipo/imgs/banner/Humano.jpg'],
         autor: 'ArtistaExemplo',
         autorLink: 'https://www.artstation.com/artistaexemplo',
         habilidades: [
@@ -26,7 +26,7 @@ const racasData = {
         nome: 'Barghest',
         descricao: 'Os Barghests são criaturas misteriosas e poderosas, conhecidas por sua lealdade e força. Vivem em ambientes selvagens e são respeitadas por sua sabedoria e habilidades de combate.',
         modificadores: 'Con +2, Sab +1, Des –1',
-        imagens: ['/imgs/banner/Barghest.jpg'],
+        imagens: ['/t20prototipo/imgs/banner/Barghest.jpg'],
         autor: 'ArtistaExemplo2',
         autorLink: 'https://www.deviantart.com/artistaexemplo2',
         habilidades: [
