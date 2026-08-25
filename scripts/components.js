@@ -9,6 +9,7 @@
 // ============================================
 function createHeader() {
     return `
+        <base href="/t20prototipo/">
         <header class="nordic-header">
             <div class="header-container">
                 <div class="logo-container">
