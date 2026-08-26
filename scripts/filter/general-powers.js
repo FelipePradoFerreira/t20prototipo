@@ -1,5 +1,6 @@
-// scripts/filters/combat-powers.js
-
+//====================================
+// PODERES DE COMBATE
+//====================================
 const combatPowers = [
     {
         id: 'ataque-poderoso',
@@ -24,5 +25,28 @@ const combatPowers = [
         tags: ['Combate', 'Movimento', 'Corpo a Corpo'],
         tipo: 'Combate',
         requisito: 'Força 15'
+    }
+];
+
+//====================================
+// PODERES DE DESTINO
+//====================================
+
+const fatePowers = [
+    {
+        id: 'sorte-dos-tolos',
+        nome: 'Sorte dos Tolos',
+        descricao: 'Uma vez por dia, você pode rolar novamente um teste de resistência falho.',
+        tags: ['Destino', 'Sorte', 'Resistência'],
+        tipo: 'Destino',
+        requisito: 'Nível 3'
+    },
+    {
+        id: 'pressentimento',
+        nome: 'Pressentimento',
+        descricao: 'Você recebe +2 em testes de Percepção e Intuição.',
+        tags: ['Destino', 'Percepção', 'Intuição'],
+        tipo: 'Destino',
+        requisito: 'Nível 5'
     }
 ];

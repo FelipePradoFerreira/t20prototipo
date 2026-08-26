@@ -34,12 +34,11 @@ class FilterSystem {
     }
 
     init() {
-        this.render();
-        this.bindEvents();
-        if (this.filterContainer) {
-            this.buildFilters();
-        }
+    this.render();
+    if (this.filterContainer) {
+        this.buildFilters();
     }
+}
 
     // ============================================
     // CONSTRUÇÃO DOS FILTROS
@@ -285,5 +284,48 @@ class FilterSystem {
         this.items = newItems;
         this.filteredItems = [...this.items];
         this.applyFilters();
+    }
+
+    // ============================================
+    // ATUALIZAR FILTROS EXTERNAMENTE
+    // ============================================
+    updateFiltersFromOutside(filterOptions) {
+        // filterOptions: { tags: [...], checkboxes: {...} }
+        
+        // Atualiza os checkboxes
+        if (filterOptions.checkboxes) {
+            document.querySelectorAll('[data-filter="checkbox"]').forEach(cb => {
+                const group = cb.dataset.group || 'default';
+                if (filterOptions.checkboxes[group] && filterOptions.checkboxes[group].includes(cb.value)) {
+                    cb.checked = true;
+                } else {
+                    cb.checked = false;
+                }
+            });
+        }
+
+        // Atualiza as tags (se necessário)
+        if (filterOptions.tags) {
+            document.querySelectorAll('[data-filter="tag"]').forEach(cb => {
+                cb.checked = filterOptions.tags.includes(cb.value);
+            });
+        }
+
+        // Reaplica os filtros
+        this.applyFilters();
+    }
+
+    // ============================================
+    // DESABILITAR/HABILITAR CHECKBOXES POR GRUPO
+    // ============================================
+    setCheckboxGroupState(group, enabled) {
+        document.querySelectorAll(`[data-filter="checkbox"][data-group="${group}"]`).forEach(cb => {
+            cb.disabled = !enabled;
+            const label = cb.closest('.filter-checkbox-option');
+            if (label) {
+                label.style.opacity = enabled ? '1' : '0.4';
+                label.style.cursor = enabled ? 'pointer' : 'not-allowed';
+            }
+        });
     }
 }

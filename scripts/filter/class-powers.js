@@ -1,49 +1,41 @@
 // scripts/filters/class-powers.js
+// APENAS DADOS - sem inicialização
 
 const classPowers = [
     {
-        id: 'barbaro-furia-devastadora',
-        nome: 'Fúria Devastadora',
-        descricao: 'Seu bônus de dano em fúria aumenta para +4.',
-        tags: ['Arcanista'],
+        id: 'arcanista-magia-arcana',
+        nome: 'Magia Arcana',
+        descricao: 'Você pode lançar magias arcanas de até 4º círculo.',
+        tags: ['Arcanista', 'Magia'],
         classe: 'Arcanista',
-        nivel: 3,
+        nivel: 1,
         tipo: 'Classe'
     },
     {
-        id: 'barbaro-impeto-selvagem',
-        nome: 'Ímpeto Selvagem',
-        descricao: 'Você pode se mover mais 3m em seu turno enquanto está em fúria.',
-        tags: ['Bárbaro', 'Fúria', 'Movimento'],
+        id: 'arcanista-poder-arcano',
+        nome: 'Poder Arcano',
+        descricao: 'Você recebe 2 PM adicionais por nível.',
+        tags: ['Arcanista', 'Magia'],
         classe: 'Arcanista',
-        nivel: 5,
+        nivel: 2,
         tipo: 'Classe'
     },
     {
-        id: 'barbaro-grito-de-guerra',
-        nome: 'Grito de Guerra',
-        descricao: 'Uma vez por combate, você pode soltar um grito que causa medo em inimigos em alcance curto.',
-        tags: ['Bárbaro', 'Fúria', 'Controle'],
-        classe: 'Bárbaro',
-        nivel: 7,
+        id: 'druida-forma-animal',
+        nome: 'Forma Animal',
+        descricao: 'Você pode se transformar em um animal por até 1 hora por nível.',
+        tags: ['Druida', 'Natureza'],
+        classe: 'Druida',
+        nivel: 1,
         tipo: 'Classe'
     },
     {
-        id: 'bardo-inspiracao-poderosa',
-        nome: 'Inspiração Poderosa',
-        descricao: 'Seu bônus de inspiração aumenta para +2.',
-        tags: ['Bardo', 'Inspiração', 'Suporte'],
-        classe: 'Bardo',
-        nivel: 3,
-        tipo: 'Classe'
-    },
-    {
-        id: 'bardo-cancao-de-cura',
-        nome: 'Canção de Cura',
-        descricao: 'Uma vez por dia, você pode curar aliados em alcance médio com sua música.',
-        tags: ['Bardo', 'Cura', 'Suporte'],
-        classe: 'Bardo',
-        nivel: 5,
+        id: 'druida-magia-natural',
+        nome: 'Magia Natural',
+        descricao: 'Você pode lançar magias da natureza como se fossem divinas.',
+        tags: ['Druida', 'Natureza'],
+        classe: 'Druida',
+        nivel: 2,
         tipo: 'Classe'
     }
 ];

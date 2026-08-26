@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         filterContainerId: 'filter-bar',
         items: todosPoderes,
         filterConfig: {
-            tags: ['Bárbaro', 'Bardo', 'Combate', 'Destino', 'Fúria', 'Dano', 'Suporte', 'Cura', 'Movimento', 'Controle', 'Classe'],
+            tags: ['Arcanista', 'Bardo', 'Combate', 'Destino', 'Fúria', 'Dano', 'Suporte', 'Cura', 'Movimento', 'Controle', 'Classe'],
             checkboxes: [
                 { label: 'Poder de Classe', value: 'Classe', group: 'tipo' },
                 { label: 'Poder de Combate', value: 'Combate', group: 'tipo' },

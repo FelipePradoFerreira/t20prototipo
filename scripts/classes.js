@@ -15,17 +15,17 @@ const classesData = {
         ],
         imagens: [{ imagem: '/t20prototipo/imgs/banner/Humano.jpg', autor: 'ArtistaExemplo', autorLink: 'https://www.artstation.com/artistaexemplo' }],
         habilidades: [
-            { nome: 'Caminho do Arcanista', descricao: `A magia é um poder incrível, capaz de alterar a realidade. Esse poder tem fontes distintas e cada uma opera conforme suas próprias regras. Escolha uma das opções a seguir. Uma vez feita, essa escolha não pode ser mudada.` },
+            { nome: 'Nível 1 - Caminho do Arcanista', descricao: `A magia é um poder incrível, capaz de alterar a realidade. Esse poder tem fontes distintas e cada uma opera conforme suas próprias regras. Escolha uma das opções a seguir. Uma vez feita, essa escolha não pode ser mudada.` },
             { bullet: '&emsp;•' , nome: 'Bruxo', descricao: 'Você lança magias através de um foco — uma varinha, cajado, chapéu... Para lançar uma magia, você precisa empunhar o foco com uma mão (e gesticular com a outra) ou fazer um teste de Misticismo (CD 20 + o custo em PM da magia; se falhar, a magia não funciona, mas você gasta os PM mesmo assim). O foco tem RD 10 e PV iguais à metade dos seus, independentemente de seu material ou forma. Se for danificado, é totalmente restaurado na próxima vez que você recuperar seus PM. Se for destruído (reduzido a 0 PV), você fica atordoado por uma rodada. Você pode recuperar um foco destruído ou perdido com uma semana de trabalho e T$ 100. Seu atributo-chave para magias é Inteligência.' },
             { bullet: '&emsp;•' , nome: 'Feiticeiro', descricao: 'Você lança magias através de um poder inato que corre em seu sangue. Escolha uma linhagem como origem de seus poderes (veja a página 39). Você recebe a herança básica da linhagem escolhida. Você não depende de nenhum item ou estudo, mas sua capacidade de aprender magias é limitada — você aprende uma magia nova a cada nível ímpar (3º, 5º, 7º etc.), em vez de a cada nível. Seu atributo-chave para magias é Carisma.' },
             { bullet: '&emsp;•' , nome: 'Mago', descricao: 'Você lança magias através de estudo e memorização de fórmulas arcanas. Você só pode lançar magias memorizadas; suas outras magias não podem ser lançadas, mesmo que você tenha pontos de mana para tal. Para memorizar magias, você precisa estudar seu grimório por uma hora. Quando faz isso, escolhe metade das magias que conhece (por exemplo, se conhece 7 magias, escolhe 3).Essas serão suas magias memorizadas. Você pode memorizar magias uma vez por dia. Caso não possa estudar (por não ter tempo, por ter perdido o grimório...), não poderá trocar suas magias memorizadas. Um grimório tem as mesmas estatísticas de um foco (veja acima) e pode ser recuperado da mesma forma. Você começa com uma magia adicional (para um total de 4) e, sempre que ganha acesso a um novo círculo de magias, aprende uma magia adicional daquele círculo. Seu atributo-chave para magias é Inteligência.' },
-            { nome: 'Magias', descricao: `Você pode lançar magias arcanas de 1º círculo. A cada quatro níveis, pode lançar magias de um círculo maior (2º círculo no 5º nível, 3º círculo no 9º nível e assim por diante).
+            { nome: 'Nível 1 - Magias', descricao: `Você pode lançar magias arcanas de 1º círculo. A cada quatro níveis, pode lançar magias de um círculo maior (2º círculo no 5º nível, 3º círculo no 9º nível e assim por diante).
                                         <br>
                                         Você começa com três magias de 1º círculo. A cada nível, aprende uma magia de qualquer círculo que possa lançar.
                                         <br>
                                         Seu atributo-chave para lançar magias é definido pelo seu Caminho (veja acima) e você soma seu atributo-chave no seu total de PM. Veja o Capítulo 4 para as regras de magia.` },
-            { nome: 'Poder de Arcanista', descricao: 'No 2º nível, e a cada nível seguinte, você escolhe um dos poderes da lista de poderes de arcanista.' },
-            { nome: 'Alta Arcana', descricao: 'No 20º nível, seu domínio das artes arcanas é total. O custo em PM de suas magias arcanas é reduzido à metade (após aplicar aprimoramentos e quaisquer outros efeitos que reduzam custo).' }
+            { nome: 'Nível 2 - Poder de Arcanista', descricao: 'No 2º nível, e a cada nível seguinte, você escolhe um dos poderes da lista de poderes de arcanista.' },
+            { nome: 'Nível 20 - Alta Arcana', descricao: 'No 20º nível, seu domínio das artes arcanas é total. O custo em PM de suas magias arcanas é reduzido à metade (após aplicar aprimoramentos e quaisquer outros efeitos que reduzam custo).' }
         ],
         progressao: [
             { nivel: '1°', habilidades: 'Caminho do Arcanista, magias (1° circulo)' },
@@ -166,6 +166,9 @@ function exibirClasse(classeId) {
             detalheDesc.textContent = `Veja abaixo os detalhes da classe ${classe.nome}.`;
         }
 
+        // === ATUALIZA O FILTRO DE PODERES PARA A CLASSE ATUAL ===
+        updatePoderesFilterForClass(classeId);
+
         // Fecha dropdown
         const content = document.getElementById('classe-dropdown-content');
         const seta = document.getElementById('classe-dropdown-seta');
@@ -177,6 +180,64 @@ function exibirClasse(classeId) {
     } finally {
         isUpdating = false;
     }
+}
+
+// ============================================
+// ATUALIZAR FILTRO DE PODERES POR CLASSE
+// ============================================
+function updatePoderesFilterForClass(classeId) {
+    console.log(`🔄 Atualizando filtro para classe: ${classeId}`);
+    
+    const filter = window.poderesFilter;
+    if (!filter) {
+        console.warn('⚠️ Filtro de poderes não inicializado.');
+        return;
+    }
+
+    const classe = classesData[classeId];
+    if (!classe) {
+        console.warn(`⚠️ Classe "${classeId}" não encontrada.`);
+        return;
+    }
+
+    // Nome da classe com primeira letra maiúscula
+    const className = classeId.charAt(0).toUpperCase() + classeId.slice(1);
+    console.log(`📌 Classe selecionada: ${className}`);
+
+    // Filtra os poderes para mostrar apenas os da classe atual
+    const allPowers = [...classPowers];
+    
+    let filteredPowers = allPowers.filter(item => {
+        if (item.classe) {
+            return item.classe.toLowerCase() === classeId.toLowerCase();
+        }
+        return true;
+    });
+
+    console.log(`📊 ${filteredPowers.length} poderes encontrados para ${className}`);
+
+    // Atualiza os dados do filtro
+    filter.updateItems(filteredPowers);
+
+    // Marca apenas o checkbox da classe atual
+    document.querySelectorAll('[data-filter="checkbox"][data-group="tipo"]').forEach(cb => {
+        const isCurrent = cb.value.toLowerCase() === classeId.toLowerCase();
+        cb.checked = isCurrent;
+        cb.disabled = !isCurrent;
+        const label = cb.closest('.filter-checkbox-option');
+        if (label) {
+            label.style.opacity = isCurrent ? '1' : '0.4';
+            label.style.cursor = isCurrent ? 'pointer' : 'not-allowed';
+        }
+    });
+
+    // Limpa tags selecionadas
+    document.querySelectorAll('[data-filter="tag"]:checked').forEach(cb => {
+        cb.checked = false;
+    });
+
+    filter.applyFilters();
+    console.log(`✅ Filtro atualizado para a classe: ${className}`);
 }
 
 // ============================================
@@ -275,10 +336,96 @@ function initClasses() {
 
     window.classeImageCarousel = imageCarousel;
 
+    // ============================================
+    // INICIALIZA O FILTRO DE PODERES AQUI
+    // ============================================
+    initPoderesFilter();
+
     // === EXIBE A PRIMEIRA CLASSE ===
     setTimeout(() => {
-        exibirClasse('barbaro');
-    }, 100);
+        const primeiraClasse = classeKeys[0] || 'arcanista';
+        exibirClasse(primeiraClasse);
+    }, 200);
+}
+
+// ============================================
+// INICIALIZAÇÃO DO FILTRO DE PODERES
+// ============================================
+function initPoderesFilter() {
+    const container = document.getElementById('poderes-container');
+    if (!container) {
+        console.warn('⚠️ Container de poderes não encontrado.');
+        return;
+    }
+
+    // Verifica se os dados existem
+    if (typeof classPowers === 'undefined') {
+        console.error('❌ Dados classPowers não carregados!');
+        container.innerHTML = `
+            <div class="filter-empty-state">
+                <p style="color: var(--text-muted);">Erro ao carregar dados dos poderes.</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Combina todos os poderes (só classPowers por enquanto)
+    const todosPoderes = [...classPowers];
+
+    if (todosPoderes.length === 0) {
+        container.innerHTML = `
+            <div class="filter-empty-state">
+                <p style="color: var(--text-muted);">Nenhum poder disponível no momento.</p>
+            </div>
+        `;
+        return;
+    }
+
+    console.log(`📚 ${todosPoderes.length} poderes carregados`);
+
+    const filter = new FilterSystem({
+        containerId: 'poderes-container',
+        searchInputId: 'search-input',
+        filterContainerId: 'filter-bar',
+        items: todosPoderes,
+        filterConfig: {
+            tags: ['Combate', 'Destino'],
+            checkboxes: [
+                { label: 'Arcanista', value: 'Arcanista', group: 'classe' },
+                { label: 'Druida', value: 'Druida', group: 'classe' }
+            ]
+        },
+        renderItem: function(item) {
+            return `
+                <div class="filter-item">
+                    <span class="filter-item-meta">
+                        ${item.tipo || ''} 
+                        ${item.classe ? '• ' + item.classe : ''} 
+                        ${item.nivel ? '• Nível ' + item.nivel : ''}
+                    </span>
+                    <h3>${item.nome}</h3>
+                    <p>${item.descricao}</p>
+                    ${item.requisito ? `<span class="filter-item-meta" style="color: var(--gold);">Requisito: ${item.requisito}</span>` : ''}
+                    <div class="filter-item-tags">
+                        ${item.tags.map(t => `<span class="tag tag-${t.toLowerCase()}">${t}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        },
+        getSearchableText: function(item) {
+            return `${item.nome} ${item.descricao} ${(item.tags || []).join(' ')} ${item.classe || ''} ${item.tipo || ''}`;
+        },
+        getCheckboxValue: function(item, group) {
+            if (group === 'tipo') return item.tipo || '';
+            return item[group] || '';
+        },
+        onUpdate: function(filteredItems) {
+            console.log(`🔍 ${filteredItems.length} poderes encontrados`);
+        }
+    });
+
+    window.poderesFilter = filter;
+    console.log('✅ Sistema de filtro de poderes inicializado!');
 }
 
 // Inicializa quando o DOM carregar
