@@ -4,133 +4,91 @@
  * Dados das classes
  */
 const classesData = {
-    barbaro: {
-        nome: 'Bárbaro',
-        descricao: 'Os bárbaros são guerreiros que canalizam sua fúria primordial para destruir inimigos. Rejeitando a civilização e suas regras, eles confiam em sua força bruta e instintos selvagens para sobreviver.',
-        modificadores: 'Força (Principal) • PV: 1d12 • Perícias: 4',
-        imagens: [{ imagem: '/t20prototipo/imgs/banner/Temporario.jpg', autor: 'ArtistaExemplo', autorLink: 'https://www.artstation.com/artistaexemplo' }],
+    arcanista: {
+        nome: 'Arcanista',
+        descricao: 'Os arcanistas são mestres das artes mágicas, capazes de lançar feitiços poderosos e manipular a energia arcana. Eles são estudiosos e pesquisadores, dedicados ao conhecimento e à dominação das forças místicas.',
+        caracteristicas: [
+            { label: 'PV por Nível', value: 'Um arcanista começa com 8 pontos de vida (+ Constituição) e ganha 2 PV (+ Constituição) por nível.' },
+            { label: 'PM por Nível', value: '6 PM por nível.' },
+            { label: 'Perícias', value: 'Misticismo (Int) e Vontade (Sab), mais 2 a sua escolha entre Conhecimento (Int), Diplomacia (Car), Enganação (Car), Guerra (Int), Iniciativa (Des), Intimidação (Car), Intuição (Sab), Investigação (Int), Nobreza (Int), Ofício (Int) e Percepção (Sab).' },
+            { label: 'Proficiências', value: 'Nenhuma.' }
+        ],
+        imagens: [{ imagem: '/t20prototipo/imgs/banner/Humano.jpg', autor: 'ArtistaExemplo', autorLink: 'https://www.artstation.com/artistaexemplo' }],
+        habilidades: [
+            { nome: 'Caminho do Arcanista', descricao: `A magia é um poder incrível, capaz de alterar a realidade. Esse poder tem fontes distintas e cada uma opera conforme suas próprias regras. Escolha uma das opções a seguir. Uma vez feita, essa escolha não pode ser mudada.` },
+            { bullet: '&emsp;•' , nome: 'Bruxo', descricao: 'Você lança magias através de um foco — uma varinha, cajado, chapéu... Para lançar uma magia, você precisa empunhar o foco com uma mão (e gesticular com a outra) ou fazer um teste de Misticismo (CD 20 + o custo em PM da magia; se falhar, a magia não funciona, mas você gasta os PM mesmo assim). O foco tem RD 10 e PV iguais à metade dos seus, independentemente de seu material ou forma. Se for danificado, é totalmente restaurado na próxima vez que você recuperar seus PM. Se for destruído (reduzido a 0 PV), você fica atordoado por uma rodada. Você pode recuperar um foco destruído ou perdido com uma semana de trabalho e T$ 100. Seu atributo-chave para magias é Inteligência.' },
+            { bullet: '&emsp;•' , nome: 'Feiticeiro', descricao: 'Você lança magias através de um poder inato que corre em seu sangue. Escolha uma linhagem como origem de seus poderes (veja a página 39). Você recebe a herança básica da linhagem escolhida. Você não depende de nenhum item ou estudo, mas sua capacidade de aprender magias é limitada — você aprende uma magia nova a cada nível ímpar (3º, 5º, 7º etc.), em vez de a cada nível. Seu atributo-chave para magias é Carisma.' },
+            { bullet: '&emsp;•' , nome: 'Mago', descricao: 'Você lança magias através de estudo e memorização de fórmulas arcanas. Você só pode lançar magias memorizadas; suas outras magias não podem ser lançadas, mesmo que você tenha pontos de mana para tal. Para memorizar magias, você precisa estudar seu grimório por uma hora. Quando faz isso, escolhe metade das magias que conhece (por exemplo, se conhece 7 magias, escolhe 3).Essas serão suas magias memorizadas. Você pode memorizar magias uma vez por dia. Caso não possa estudar (por não ter tempo, por ter perdido o grimório...), não poderá trocar suas magias memorizadas. Um grimório tem as mesmas estatísticas de um foco (veja acima) e pode ser recuperado da mesma forma. Você começa com uma magia adicional (para um total de 4) e, sempre que ganha acesso a um novo círculo de magias, aprende uma magia adicional daquele círculo. Seu atributo-chave para magias é Inteligência.' },
+            { nome: 'Magias', descricao: `Você pode lançar magias arcanas de 1º círculo. A cada quatro níveis, pode lançar magias de um círculo maior (2º círculo no 5º nível, 3º círculo no 9º nível e assim por diante).
+                                        <br>
+                                        Você começa com três magias de 1º círculo. A cada nível, aprende uma magia de qualquer círculo que possa lançar.
+                                        <br>
+                                        Seu atributo-chave para lançar magias é definido pelo seu Caminho (veja acima) e você soma seu atributo-chave no seu total de PM. Veja o Capítulo 4 para as regras de magia.` },
+            { nome: 'Poder de Arcanista', descricao: 'No 2º nível, e a cada nível seguinte, você escolhe um dos poderes da lista de poderes de arcanista.' },
+            { nome: 'Alta Arcana', descricao: 'No 20º nível, seu domínio das artes arcanas é total. O custo em PM de suas magias arcanas é reduzido à metade (após aplicar aprimoramentos e quaisquer outros efeitos que reduzam custo).' }
+        ],
+        progressao: [
+            { nivel: '1°', habilidades: 'Caminho do Arcanista, magias (1° circulo)' },
+            { nivel: '2°', habilidades: 'Poder de Arcanista' },
+            { nivel: '3°', habilidades: 'Poder de Arcanista' },
+            { nivel: '4°', habilidades: 'Poder de Arcanista' },
+            { nivel: '5°', habilidades: 'Magias (2° circulo) ,poder de Arcanista' },
+            { nivel: '6°', habilidades: 'Poder de Arcanista' },
+            { nivel: '7°', habilidades: 'Poder de Arcanista' },
+            { nivel: '8°', habilidades: 'Poder de Arcanista' },
+            { nivel: '9°', habilidades: 'Magias (3° circulo) ,poder de Arcanista' },
+            { nivel: '10°', habilidades: 'Poder de Arcanista' },
+            { nivel: '11°', habilidades: 'Poder de Arcanista' },
+            { nivel: '12°', habilidades: 'Poder de Arcanista' },
+            { nivel: '13°', habilidades: 'Magias (4º círculo), poder de arcanista' },
+            { nivel: '14°', habilidades: 'Poder de Arcanista' },
+            { nivel: '15°', habilidades: 'Poder de Arcanista' },
+            { nivel: '16°', habilidades: 'Poder de Arcanista' },
+            { nivel: '17°', habilidades: 'Magias (5º círculo), poder de arcanista' },
+            { nivel: '18°', habilidades: 'Poder de Arcanista' },
+            { nivel: '19°', habilidades: 'Poder de Arcanista' },
+            { nivel: '20°', habilidades: 'Alta arcana, poder de arcanista' }
+        ]
+    },
+    druida: {
+        nome: 'Druida',
+        descricao: 'Os druidas são mestres da natureza, capazes de se transformar em animais e manipular elementos naturais. Eles são guardiões da floresta e defendem o equilíbrio entre o mundo natural e o mundo civilizado.',
+        caracteristicas: [
+            { label: 'PV por Nível', value: '1d8' },
+            { label: 'PM por Nível', value: '6' },
+            { label: 'Perícias', value: 'Atletismo, Luta, Percepção, Sobrevivência' },
+            { label: 'Proficiências', value: 'Armas Marciais, Armaduras Médias, Escudos' }
+        ],
+        imagens: [{ imagem: '/t20prototipo/imgs/banner/Barghest.jpg', autor: 'ArtistaExemplo', autorLink: 'https://www.artstation.com/artistaexemplo' }],
         habilidades: [
             { nome: 'Fúria', descricao: 'Você entra em um estado de fúria que concede +2 em ataques corpo a corpo e +2 em dano, mas reduz sua Defesa em -2.' },
             { nome: 'Instinto Selvagem', descricao: 'Você recebe +2 em testes de Percepção e Sobrevivência.' },
             { nome: 'Resistência Primordial', descricao: 'Você recebe resistência a dano perfurante e cortante enquanto estiver em fúria.' }
         ],
-        poderes: [
-            { nome: 'Fúria Devastadora', descricao: 'Seu bônus de dano em fúria aumenta para +4.' },
-            { nome: 'Ímpeto Selvagem', descricao: 'Você pode se mover mais 3m em seu turno enquanto está em fúria.' },
-            { nome: 'Grito de Guerra', descricao: 'Uma vez por combate, você pode soltar um grito que causa medo em inimigos em alcance curto.' }
-        ]
-    },
-    bardo: {
-        nome: 'Bardo',
-        descricao: 'Os bardos são artistas e músicos que canalizam magia através de sua arte. Inspirando aliados e confundindo inimigos, eles são mestres da versatilidade e da persuasão.',
-        modificadores: 'Carisma (Principal) • PV: 1d8 • Perícias: 6',
-        imagens: [{ imagem: '/imgs/banner/bardo-banner.jpg', autor: 'ArtistaExemplo2', autorLink: 'https://www.deviantart.com/artistaexemplo2' }],
-        habilidades: [
-            { nome: 'Inspiração', descricao: 'Você pode inspirar aliados, concedendo +1 em testes de perícia ou ataque por 1 rodada.' },
-            { nome: 'Música Arcana', descricao: 'Você pode lançar magias usando sua música como foco arcano.' },
-            { nome: 'Persuasão', descricao: 'Você recebe +2 em testes de Diplomacia e Enganação.' }
-        ],
-        poderes: [
-            { nome: 'Inspiração Poderosa', descricao: 'Seu bônus de inspiração aumenta para +2.' },
-            { nome: 'Canção de Cura', descricao: 'Uma vez por dia, você pode curar aliados em alcance médio com sua música.' }
-        ]
-    },
-    clerigo: {
-        nome: 'Clérigo',
-        descricao: 'Os clérigos são servos divinos que canalizam o poder de sua divindade. Curandeiros, protetores e guerreiros sagrados, eles são a espada e o escudo da fé.',
-        modificadores: 'Sabedoria (Principal) • PV: 1d8 • Perícias: 4',
-        imagens: [{ imagem: '/imgs/banner/clerigo-banner.jpg', autor: 'ArtistaExemplo3', autorLink: 'https://www.artstation.com/artistaexemplo3' }],
-        habilidades: [
-            { nome: 'Cura Divina', descricao: 'Você pode canalizar energia divina para curar aliados em alcance curto.' },
-            { nome: 'Magia Divina', descricao: 'Você pode lançar magias divinas de sua divindade.' },
-            { nome: 'Proteção Sagrada', descricao: 'Você recebe +1 na Defesa enquanto estiver usando armadura pesada.' }
-        ],
-        poderes: []
-    },
-    druida: {
-        nome: 'Druida',
-        descricao: 'Os druidas são guardiões da natureza que canalizam as forças da terra e dos animais. Transformando-se em bestas e controlando os elementos, eles protegem o equilíbrio natural.',
-        modificadores: 'Sabedoria (Principal) • PV: 1d8 • Perícias: 4',
-        imagens: [{ imagem: '/imgs/banner/druida-banner.jpg', autor: 'ArtistaExemplo4', autorLink: 'https://www.artstation.com/artistaexemplo4' }],
-        habilidades: [
-            { nome: 'Forma Animal', descricao: 'Você pode se transformar em um animal por até 1 hora por nível.' },
-            { nome: 'Magia Natural', descricao: 'Você pode lançar magias da natureza como se fossem divinas.' },
-            { nome: 'Sentidos da Natureza', descricao: 'Você recebe +2 em Percepção e Sobrevivência em ambientes naturais.' }
-        ],
-        poderes: [
-            { nome: 'Forma Bestial', descricao: 'Em forma animal, você recebe +2 em ataques e dano corpo a corpo.' },
-            { nome: 'Comunhão com a Natureza', descricao: 'Você pode se comunicar com animais e plantas.' }
-        ]
-    },
-    guerreiro: {
-        nome: 'Guerreiro',
-        descricao: 'Os guerreiros são mestres das armas e armaduras. Especialistas em combate tático, eles são a linha de frente de qualquer grupo, protegendo aliados e destruindo inimigos.',
-        modificadores: 'Força ou Destreza (Principal) • PV: 1d10 • Perícias: 4',
-        imagens: [{ imagem: '/imgs/banner/guerreiro-banner.jpg', autor: 'ArtistaExemplo5', autorLink: 'https://www.artstation.com/artistaexemplo5' }],
-        habilidades: [
-            { nome: 'Perícia Marcial', descricao: 'Você recebe +2 em testes de Luta e Pontaria.' },
-            { nome: 'Postura Defensiva', descricao: 'Você pode usar uma ação para aumentar sua Defesa em +2 até o próximo turno.' },
-            { nome: 'Ataque Poderoso', descricao: 'Você pode gastar 2 PM para aumentar o dano de um ataque em +4.' }
-        ],
-        poderes: []
-    },
-    ladino: {
-        nome: 'Ladino',
-        descricao: 'Os ladinos são especialistas em furtividade, precisão e versatilidade. Mestres das sombras e das armas leves, eles se destacam em missões de infiltração e eliminação.',
-        modificadores: 'Destreza (Principal) • PV: 1d6 • Perícias: 6',
-        imagens: [{ imagem: '/imgs/banner/ladino-banner.jpg', autor: 'ArtistaExemplo6', autorLink: 'https://www.artstation.com/artistaexemplo6' }],
-        habilidades: [
-            { nome: 'Ataque Furtivo', descricao: 'Você causa dano adicional quando ataca um inimigo desprevenido.' },
-            { nome: 'Especialista', descricao: 'Você recebe +2 em Furtividade e Ladinagem.' },
-            { nome: 'Esquiva', descricao: 'Você recebe +2 na Defesa contra ataques corpo a corpo.' }
-        ],
-        poderes: [
-            { nome: 'Ataque Preciso', descricao: 'Seu Ataque Furtivo causa +1d6 de dano.' },
-            { nome: 'Sombra Escura', descricao: 'Em ambientes com pouca luz, você recebe +2 em Furtividade.' }
-        ]
-    },
-    mago: {
-        nome: 'Mago',
-        descricao: 'Os magos são estudiosos das artes arcanas, capazes de moldar a realidade com sua magia. Frágeis mas poderosos, eles controlam as forças do universo.',
-        modificadores: 'Inteligência (Principal) • PV: 1d6 • Perícias: 4',
-        imagens: [{ imagem: '/imgs/banner/mago-banner.jpg', autor: 'ArtistaExemplo7', autorLink: 'https://www.artstation.com/artistaexemplo7' }],
-        habilidades: [
-            { nome: 'Conhecimento Arcano', descricao: 'Você recebe +2 em testes de Conhecimento e Misticismo.' },
-            { nome: 'Magia Arcana', descricao: 'Você pode lançar magias arcanas de até 4º círculo.' },
-            { nome: 'Poder Arcano', descricao: 'Você recebe 2 PM adicionais por nível.' }
-        ],
-        poderes: []
-    },
-    paladino: {
-        nome: 'Paladino',
-        descricao: 'Os paladinos são cavaleiros sagrados que unem fé e combate. Protetores dos inocentes e destruidores do mal, eles são a personificação da justiça divina.',
-        modificadores: 'Carisma (Principal) • PV: 1d10 • Perícias: 4',
-        imagens: [{ imagem: '/imgs/banner/paladino-banner.jpg', autor: 'ArtistaExemplo8', autorLink: 'https://www.artstation.com/artistaexemplo8' }],
-        habilidades: [
-            { nome: 'Mão Sagrada', descricao: 'Você pode curar aliados com um toque, gastando 1 PM para curar 1d8 de PV.' },
-            { nome: 'Aura Protetora', descricao: 'Aliados em alcance curto recebem +1 na Defesa.' },
-            { nome: 'Julgamento Divino', descricao: 'Uma vez por dia, você pode declarar um julgamento que concede bônus contra um inimigo.' }
-        ],
-        poderes: [
-            { nome: 'Aura Poderosa', descricao: 'Seu bônus de Aura Protetora aumenta para +2.' },
-            { nome: 'Golpe Sagrado', descricao: 'Seus ataques contra criaturas malignas causam +1d6 de dano.' }
-        ]
-    },
-    cassador: {
-        nome: 'Caçador',
-        descricao: 'Os caçadores são especialistas em rastrear e abater inimigos com precisão letal. Mestres do arco e da sobrevivência, eles são predadores natos.',
-        modificadores: 'Destreza (Principal) • PV: 1d8 • Perícias: 6',
-        imagens: [{ imagem: '/imgs/banner/cassador-banner.jpg', autor: 'ArtistaExemplo9', autorLink: 'https://www.artstation.com/artistaexemplo9' }],
-        habilidades: [
-            { nome: 'Rastreamento', descricao: 'Você recebe +2 em Sobrevivência e Percepção.' },
-            { nome: 'Tiro Preciso', descricao: 'Você recebe +2 em Pontaria com armas de distância.' },
-            { nome: 'Marca do Caçador', descricao: 'Você pode marcar um inimigo, recebendo +1 em ataques contra ele.' }
-        ],
-        poderes: [
-            { nome: 'Tiro Letal', descricao: 'Seu dano com armas de distância aumenta em +2.' },
-            { nome: 'Passos Silenciosos', descricao: 'Você recebe +2 em Furtividade em ambientes naturais.' }
+        progressao: [
+            { nivel: 1, habilidades: 'Poder de Arcanista' },
+            { nivel: 2, habilidades: 'Poder de Arcanista' },
+            { nivel: 3, habilidades: 'Poder de Arcanista' },
+            { nivel: 4, habilidades: 'Poder de Arcanista' },
+            { nivel: 5, habilidades: 'Poder de Arcanista' },
+            { nivel: 6, habilidades: 'Poder de Arcanista' },
+            { nivel: 7, habilidades: 'Poder de Arcanista' },
+            { nivel: 8, habilidades: 'Poder de Arcanista' },
+            { nivel: 9, habilidades: 'Poder de Arcanista' },
+            { nivel: 10, habilidades: 'Poder de Arcanista' },
+            { nivel: 11, habilidades: 'Poder de Arcanista' },
+            { nivel: 12, habilidades: 'Poder de Arcanista' },
+            { nivel: 13, habilidades: 'Poder de Arcanista' },
+            { nivel: 14, habilidades: 'Poder de Arcanista' },
+            { nivel: 15, habilidades: 'Poder de Arcanista' },
+            { nivel: 16, habilidades: 'Poder de Arcanista' },
+            { nivel: 17, habilidades: 'Poder de Arcanista' },
+            { nivel: 18, habilidades: 'Poder de Arcanista' },
+            { nivel: 19, habilidades: 'Poder de Arcanista' },
+            { nivel: 20, habilidades: 'Poder de Arcanista' }
         ]
     }
+    // ... outras classes com a mesma estrutura
 };
 
 // Configuração específica da página de classes
@@ -139,7 +97,7 @@ let currentClasseIndex = 0;
 let isUpdating = false;
 
 // ============================================
-// FUNÇÃO PARA EXIBIR CLASSE (ESPECÍFICA)
+// FUNÇÃO PARA EXIBIR CLASSE
 // ============================================
 function exibirClasse(classeId) {
     if (isUpdating) return;
@@ -157,10 +115,30 @@ function exibirClasse(classeId) {
         const descricaoEl = document.getElementById('classe-descricao');
         if (descricaoEl) descricaoEl.textContent = classe.descricao;
 
-        // Atualiza modificadores
-        const modificadoresBox = document.getElementById('classe-modificadores-box');
-        if (modificadoresBox) {
-            modificadoresBox.innerHTML = `<p><strong style="color: var(--gold);">Modificadores:</strong> ${classe.modificadores}</p>`;
+        // === CARACTERÍSTICAS BÁSICAS ===
+        const caracteristicasContainer = document.getElementById('classe-caracteristicas-content');
+        if (caracteristicasContainer && classe.caracteristicas) {
+            caracteristicasContainer.innerHTML = `
+                <div class="classe-caracteristicas-grid">
+                    ${classe.caracteristicas.map(car => `
+                        <div class="caracteristica-item">
+                            <span class="label">${car.label}.</span>
+                            <span class="value">${car.value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // === TABELA DE PROGRESSÃO ===
+        const tabelaCorpo = document.getElementById('classe-tabela-corpo');
+        if (tabelaCorpo && classe.progressao) {
+            tabelaCorpo.innerHTML = classe.progressao.map(item => `
+                <tr>
+                    <td class="col-center col-gold">${item.nivel}</td>
+                    <td>${item.habilidades}</td>
+                </tr>
+            `).join('');
         }
 
         // Atualiza habilidades
@@ -168,42 +146,15 @@ function exibirClasse(classeId) {
         if (habilidadesEl && classe.habilidades) {
             habilidadesEl.innerHTML = classe.habilidades.map(hab => `
                 <div class="raca-habilidade-item">
-                    <span class="bullet">✦</span>
-                    <span><strong>${hab.nome}:</strong> ${hab.descricao}</span>
+                    <span class="bullet">${hab.bullet || '✦'}</span>
+                    <span><strong>${hab.nome}.</strong> ${hab.descricao}</span>
                 </div>
             `).join('');
         }
 
-        // Atualiza poderes
-        const poderesEl = document.getElementById('classe-poderes');
-        const gridEl = document.getElementById('classe-info-grid');
-        const poderesCol = document.getElementById('classe-poderes-col');
-
-        if (poderesEl && gridEl && poderesCol) {
-            if (classe.poderes && classe.poderes.length > 0) {
-                poderesEl.innerHTML = classe.poderes.map(poder => `
-                    <div class="raca-poder-item">
-                        <span class="poder-nome">✦ ${poder.nome}</span>
-                        <span class="poder-descricao">${poder.descricao}</span>
-                    </div>
-                `).join('');
-                gridEl.className = 'raca-info-grid';
-                poderesCol.style.display = 'block';
-            } else {
-                poderesEl.innerHTML = '';
-                poderesCol.style.display = 'none';
-                gridEl.className = 'raca-info-grid single';
-            }
-        }
-
-        // Destaca o card ativo
-        document.querySelectorAll('.classe-card').forEach(card => {
-            card.style.borderColor = 'rgba(58, 74, 90, 0.3)';
-            card.style.boxShadow = 'none';
-            if (card.dataset.classe === classeId) {
-                card.style.borderColor = 'var(--gold)';
-                card.style.boxShadow = '0 8px 40px rgba(201, 168, 76, 0.15)';
-            }
+        // === ATUALIZA DROPDOWN ===
+        document.querySelectorAll('.classe-dropdown-item').forEach(item => {
+            item.classList.toggle('active', item.dataset.classe === classeId);
         });
 
         // Atualiza índice atual
@@ -214,6 +165,12 @@ function exibirClasse(classeId) {
         if (detalheDesc) {
             detalheDesc.textContent = `Veja abaixo os detalhes da classe ${classe.nome}.`;
         }
+
+        // Fecha dropdown
+        const content = document.getElementById('classe-dropdown-content');
+        const seta = document.getElementById('classe-dropdown-seta');
+        if (content) content.classList.remove('open');
+        if (seta) seta.classList.remove('open');
 
         console.log(`✅ Classe "${classe.nome}" exibida com sucesso!`);
 
@@ -226,6 +183,47 @@ function exibirClasse(classeId) {
 // INICIALIZAÇÃO DA PÁGINA DE CLASSES
 // ============================================
 function initClasses() {
+    // === POPULA DROPDOWN ===
+    const dropdownContent = document.getElementById('classe-dropdown-content');
+    if (dropdownContent) {
+        dropdownContent.innerHTML = classeKeys.map(key => {
+            const classe = classesData[key];
+            return `
+                <div class="raca-dropdown-item classe-dropdown-item" data-classe="${key}">
+                    <span>${classe.nome}</span>
+                    <span class="tag tag-silver">${classe.caracteristicas ? classe.caracteristicas[0].value : ''}</span>
+                </div>
+            `;
+        }).join('');
+
+        dropdownContent.querySelectorAll('.classe-dropdown-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const classeId = this.dataset.classe;
+                if (classeId) {
+                    const index = classeKeys.indexOf(classeId);
+                    if (index !== -1 && window.classeImageCarousel) {
+                        window.classeImageCarousel.goToImage(index);
+                    }
+                    exibirClasse(classeId);
+                }
+            });
+        });
+    }
+
+    // === INICIALIZA DROPDOWN ===
+    const dropdownHeader = document.getElementById('classe-dropdown-header');
+    if (dropdownHeader) {
+        dropdownHeader.addEventListener('click', function() {
+            const content = document.getElementById('classe-dropdown-content');
+            const seta = document.getElementById('classe-dropdown-seta');
+            if (content) {
+                content.classList.toggle('open');
+                if (seta) seta.classList.toggle('open');
+            }
+        });
+    }
+
     // === EVENTOS DOS CARDS DE CLASSE ===
     document.querySelectorAll('.classe-card').forEach(card => {
         card.addEventListener('click', function() {

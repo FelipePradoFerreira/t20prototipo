@@ -23,7 +23,7 @@
             </div>
 
             <!-- ============================================ -->
-            <!-- Definições iniciais para os jogadores -->
+            <!-- SEÇÃO: VISÃO GERAL -->
             <!-- ============================================ -->
             <section class="general-section">
                 <h2>Escolhendo uma classe</h2>
@@ -34,109 +34,7 @@
             </section>
 
             <!-- ============================================ -->
-            <!-- CARDS DE CLASSES (VISÃO GERAL) -->
-            <!-- ============================================ -->
-            <section class="general-section">
-                <h2>Visão Geral das Classes</h2>
-                <p class="section-description">
-                    Conheça as classes disponíveis em T20. Clique em uma para ver mais detalhes.
-                </p>
-
-                <div class="general-grid max-3">
-                    <div class="feature-card classe-card" data-classe="barbaro">
-                        <div class="feature-icon">⚔</div>
-                        <h3>Bárbaro</h3>
-                        <p>Guerreiro furioso que canaliza sua ira para destruir inimigos.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-gold">Guerreiro</span>
-                            <span class="tag tag-silver">Corpo a Corpo</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="bardo">
-                        <div class="feature-icon">🎵</div>
-                        <h3>Bardo</h3>
-                        <p>Artista e músico que inspira aliados e confunde inimigos com sua arte.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-silver">Especialista</span>
-                            <span class="tag tag-blue">Arcana</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="clerigo">
-                        <div class="feature-icon">✝</div>
-                        <h3>Clérigo</h3>
-                        <p>Servo divino que canaliza o poder de sua divindade para curar e proteger.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-gold">Divino</span>
-                            <span class="tag tag-blue">Suporte</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="druida">
-                        <div class="feature-icon">🌿</div>
-                        <h3>Druida</h3>
-                        <p>Guardião da natureza que se transforma em animais e controla as forças da terra.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-gold">Divino</span>
-                            <span class="tag tag-blue">Natureza</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="guerreiro">
-                        <div class="feature-icon">🛡</div>
-                        <h3>Guerreiro</h3>
-                        <p>Mestre das armas e armaduras, especialista em combate tático.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-gold">Guerreiro</span>
-                            <span class="tag tag-silver">Tático</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="ladino">
-                        <div class="feature-icon">🗡</div>
-                        <h3>Ladino</h3>
-                        <p>Especialista em furtividade, precisão e habilidades versáteis.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-silver">Especialista</span>
-                            <span class="tag tag-silver">Precisão</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="mago">
-                        <div class="feature-icon">🔮</div>
-                        <h3>Mago</h3>
-                        <p>Estudioso das artes arcanas, capaz de moldar a realidade com sua magia.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-blue">Arcano</span>
-                            <span class="tag tag-blue">Magia</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="paladino">
-                        <div class="feature-icon">⚜</div>
-                        <h3>Paladino</h3>
-                        <p>Cavaleiro sagrado que une fé e combate para proteger os inocentes.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-gold">Guerreiro</span>
-                            <span class="tag tag-gold">Divino</span>
-                        </div>
-                    </div>
-
-                    <div class="feature-card classe-card" data-classe="caçador">
-                        <div class="feature-icon">🏹</div>
-                        <h3>Caçador</h3>
-                        <p>Especialista em rastrear e abater inimigos com precisão letal.</p>
-                        <div style="margin-top: 0.75rem;">
-                            <span class="tag tag-silver">Especialista</span>
-                            <span class="tag tag-silver">Precisão</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ============================================ -->
-            <!-- DETALHES DA CLASSE SELECIONADA -->
+            <!-- SEÇÃO: DETALHES DA CLASSE -->
             <!-- ============================================ -->
             <section class="general-section">
                 <h2>Detalhes da Classe</h2>
@@ -151,54 +49,104 @@
                     </h2>
                 </div>
 
-                <!-- Carousel de Imagens da Classe -->
-                <div class="raca-imagem-carousel" id="classe-imagem-carousel">
-                    <button class="carousel-btn prev" id="classe-imagem-prev" aria-label="Anterior">〈</button>
-                    <div class="carousel-track" id="classe-imagem-track">
-                        <div class="carousel-slide">
-                            <img src="/imgs/banner/classe-placeholder.jpg" alt="Classe" />
+                <!-- ============================================ -->
+                <!-- CAROUSEL DE IMAGENS (TOPO) -->
+                <!-- ============================================ -->
+                <div class="raca-imagem-wrapper">
+                    <div class="raca-imagem-carousel" id="classe-imagem-carousel">
+                        <button class="carousel-btn prev" id="classe-imagem-prev" aria-label="Anterior">〈</button>
+                        <div class="carousel-track" id="classe-imagem-track">
+                            <div class="carousel-slide">
+                                <img src="/t20prototipo/imgs/banner/Temporario.jpg" alt="Classe" />
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" id="classe-imagem-next" aria-label="Próximo">〉</button>
+                        
+                        <div class="credito-autor" id="classe-credito-autor">
+                            Autor: <a href="#" id="classe-credito-link" target="_blank">Artista</a>
                         </div>
                     </div>
-                    <button class="carousel-btn next" id="classe-imagem-next" aria-label="Próximo">〉</button>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- DROPDOWN DE NAVEGAÇÃO RÁPIDA -->
+                <!-- ============================================ -->
+                <div class="raca-dropdown" id="raca-dropdown">
+                    <div class="raca-dropdown" id="classe-dropdown">
+                        <div class="raca-dropdown-header" id="classe-dropdown-header">
+                            <span>Navegar por Classe</span>
+                            <span class="seta" id="classe-dropdown-seta">▼</span>
+                        </div>
+                        <div class="raca-dropdown-content" id="classe-dropdown-content">
+                            <!-- Preenchido via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- LAYOUT ESTILO LIVRO (TEXTO + TABELA) -->
+                <!-- ============================================ -->
+                <div class="classe-livro">
                     
-                    <div class="credito-autor" id="classe-credito-autor">
-                        Autor: <a href="#" id="classe-credito-link" target="_blank">Artista</a>
-                    </div>
-                </div>
-
-                <!-- Grid de Informações da Classe -->
-                <div class="raca-info-grid" id="classe-info-grid">
-                    <!-- Coluna Esquerda: Informações Básicas -->
-                    <div class="raca-info-col" id="classe-info-col">
-                        <h4>✦ Informações</h4>
-                        <p id="classe-descricao">
-                            Selecione uma classe para ver suas informações.
-                        </p>
-                        <div class="modificadores-box">
-                            <p><strong style="color: var(--gold);">Atributo Principal:</strong> <span id="classe-atributo">-</span></p>
-                            <p><strong style="color: var(--gold);">PV por Nível:</strong> <span id="classe-pv">-</span></p>
-                            <p><strong style="color: var(--gold);">Perícias por Nível:</strong> <span id="classe-pericias">-</span></p>
+                    <!-- TABELA DE PROGRESSÃO (FLUTUA À DIREITA) -->
+                    <div class="classe-tabela-wrapper">
+                        <div class="table-container table-compact">
+                            <table id="classe-tabela-progressao">
+                                <thead>
+                                    <tr>
+                                        <th class="col-center">Nível</th>
+                                        <th>Habilidades de Classe</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="classe-tabela-corpo">
+                                    <!-- Preenchido via JS -->
+                                </tbody>
+                            </table>
                         </div>
-                        <h4 style="margin-top: 1rem;">⚔ Habilidades da Classe</h4>
-                        <div id="classe-habilidades">
-                            <div class="raca-habilidade-item">
-                                <span class="bullet">✦</span>
-                                <span><strong>Selecione uma classe</strong> para ver suas habilidades.</span>
+                    </div>
+
+                    <!-- TEXTO (FLUI AO REDOR DA TABELA) -->
+                    <div class="classe-texto">
+                        <!-- Características Básicas -->
+                        <div class="classe-caracteristicas">
+                            <h3 style="color: var(--gold); font-size: 1.1rem; letter-spacing: 0.15rem; margin-bottom: 0.75rem;">✦ Características</h3>
+                            <div id="classe-caracteristicas-content">
+                                <p style="color: var(--text-muted);">Selecione uma classe para ver suas características.</p>
+                            </div>
+                        </div>
+
+                        <!-- Habilidades da Classe -->
+                        <div class="classe-habilidades-lista">
+                            <h3 style="color: var(--gold); font-size: 1.1rem; letter-spacing: 0.15rem; margin: 1.5rem 0 0.75rem 0;">⚔ Habilidades de Classe</h3>
+                            <div id="classe-habilidades">
+                                <div class="raca-habilidade-item">
+                                    <span class="bullet">✦</span>
+                                    <span><strong>Selecione uma classe</strong> para ver suas habilidades.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Coluna Direita: Poderes da Classe -->
-                    <div class="raca-info-col" id="classe-poderes-col">
-                        <h4>✦ Poderes da Classe</h4>
-                        <div class="raca-poder-lista" id="classe-poderes">
-                            <div class="raca-poder-item">
-                                <span class="poder-nome">✦ Selecione uma classe</span>
-                                <span class="poder-descricao">para ver seus poderes disponíveis.</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+                <!-- ============================================ -->
+                <!-- PODERES DE CLASSE (PLACEHOLDER) -->
+                <!-- ============================================ -->
+                <section class="general-section">
+                    <h2>✦ Todos os Poderes</h2>
+                    <p class="section-description">
+                        Encontre o poder perfeito para seu personagem. Use os filtros abaixo para refinar sua busca.
+                    </p>
+
+                    <!-- Sistema de Filtro -->
+                    <div class="filter-system">
+                        <!-- Barra de Filtros (gerada pelo JS) -->
+                        <div class="filter-bar" id="filter-bar"></div>
+                        
+                        <!-- Resultados (gerados pelo JS) -->
+                        <div class="filter-results" id="poderes-container"></div>
+                    </div>
+                </section>
             </section>
         </div>
     </main>
@@ -209,6 +157,17 @@
     <!-- Scripts -->
     <script src="/t20prototipo/scripts/components.js"></script>
     <script src="/t20prototipo/scripts/main.js"></script>
+
+    <!-- 1. Primeiro o sistema de filtro -->
+    <script src="/t20prototipo/scripts/filters/filter-system.js"></script>
+
+    <!-- 2. Depois os dados -->
+    <script src="/t20prototipo/scripts/filters/class-powers.js"></script>
+    <script src="/t20prototipo/scripts/filters/combat-powers.js"></script>
+    <script src="/t20prototipo/scripts/filters/fate-powers.js"></script>
+
+    <!-- 3. Por último a página (que usa FilterSystem e os dados) -->
     <script src="/t20prototipo/scripts/classes.js"></script>
+    <script src="/t20prototipo/scripts/pages/powers-filter-init.js"></script>
 </body>
 </html>
