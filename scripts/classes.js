@@ -160,12 +160,6 @@ function exibirClasse(classeId) {
         // Atualiza índice atual
         currentClasseIndex = classeKeys.indexOf(classeId);
 
-        // Atualiza descrição do detalhe
-        const detalheDesc = document.getElementById('classe-detalhe-desc');
-        if (detalheDesc) {
-            detalheDesc.textContent = `Veja abaixo os detalhes da classe ${classe.nome}.`;
-        }
-
         // === ATUALIZA O FILTRO DE PODERES PARA A CLASSE ATUAL ===
         updatePoderesFilterForClass(classeId);
 

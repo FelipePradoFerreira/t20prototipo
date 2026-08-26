@@ -617,7 +617,7 @@ body {
     color: var(--text-muted);
     font-size: clamp(0.85rem, 1.2vw, 0.9rem);
     margin-bottom: 1.5rem;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 /* ============================================ */
@@ -2497,6 +2497,618 @@ a:hover {
 .filter-bar.layout-compact .filter-clear-btn {
     height: 36px;
     font-size: 0.65rem;
+}
+
+/* ============================================ */
+/* LISTAS ESTILIZADAS */
+/* ============================================ */
+
+/* Listas não ordenadas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.75rem 0;
+}
+
+ul li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 1.8rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(58, 74, 90, 0.08);
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Marcador personalizado (estrela dourada) */
+ul li::before {
+    
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    
+    font-size: 0.75rem;
+}
+
+/* Listas dentro de seções específicas */
+.general-section ul {
+    margin: 0.75rem 0 1rem 0;
+}
+
+.general-section ul li {
+    padding: 0.5rem 0 0.5rem 2rem;
+    font-size: 0.9rem;
+}
+
+.general-section ul li::before {
+    content: "✦";
+    color: var(--gold);
+    top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+ul li strong {
+    color: var(--gold);
+}
+
+/* Listas aninhadas */
+ul ul {
+    margin: 0.25rem 0 0.25rem 1.5rem;
+}
+
+ul ul li {
+    padding: 0.3rem 0 0.3rem 1.8rem;
+    font-size: 0.85rem;
+    border-bottom: none;
+    color: var(--text-muted);
+}
+
+ul ul li::before {
+    content: "•";
+    color: var(--silver-dark);
+    font-size: 1rem;
+    top: 0.3rem;
+}
+
+/* Listas ordenadas */
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.75rem 0;
+    counter-reset: item;
+}
+
+ol li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 2.2rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(58, 74, 90, 0.08);
+    counter-increment: item;
+}
+
+ol li:last-child {
+    border-bottom: none;
+}
+
+ol li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.75rem;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 50%;
+    width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+}
+
+/* Lista com ícones personalizados (para descrições de poderes) */
+.poder-lista {
+    margin: 0.75rem 0 1rem 0;
+}
+
+.poder-lista li {
+    padding: 0.6rem 0 0.6rem 2.2rem;
+    border-bottom: 1px solid rgba(58, 74, 90, 0.1);
+}
+
+.poder-lista li::before {
+    content: "⚔";
+    color: var(--gold);
+    font-size: 0.9rem;
+    top: 0.6rem;
+}
+
+.poder-lista li strong {
+    color: var(--gold);
+}
+
+/* ============================================ */
+/* RESPONSIVIDADE - LISTAS */
+/* ============================================ */
+@media (max-width: 768px) {
+    ul li {
+        font-size: 0.85rem;
+        padding: 0.3rem 0 0.3rem 1.6rem;
+    }
+    
+    ul li::before {
+        font-size: 0.7rem;
+        top: 0.3rem;
+    }
+    
+    .general-section ul li {
+        font-size: 0.85rem;
+        padding: 0.4rem 0 0.4rem 1.8rem;
+    }
+    
+    ol li {
+        font-size: 0.85rem;
+        padding: 0.3rem 0 0.3rem 2rem;
+    }
+    
+    ol li::before {
+        width: 1.2rem;
+        height: 1.2rem;
+        font-size: 0.6rem;
+        top: 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    ul li {
+        font-size: 0.8rem;
+        padding: 0.25rem 0 0.25rem 1.4rem;
+    }
+    
+    ul li::before {
+        font-size: 0.6rem;
+        top: 0.25rem;
+    }
+    
+    .general-section ul li {
+        font-size: 0.8rem;
+        padding: 0.3rem 0 0.3rem 1.6rem;
+    }
+    
+    ul ul li {
+        font-size: 0.75rem;
+        padding: 0.2rem 0 0.2rem 1.4rem;
+    }
+    
+    ol li {
+        font-size: 0.8rem;
+        padding: 0.25rem 0 0.25rem 1.8rem;
+    }
+}
+
+/* ============================================ */
+/* SEÇÃO DE PERÍCIAS - TABELA + CONTEÚDO */
+/* ============================================ */
+
+.pericias-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    align-items: stretch; /* ← MUDOU de 'start' para 'stretch' */
+}
+
+/* ===== TABELA DE PERÍCIAS ===== */
+.pericias-tabela-wrapper {
+    background: var(--bg-card);
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pericias-tabela-wrapper .table-container {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.pericias-tabela-wrapper .table-container table {
+    font-size: 0.8rem;
+    min-width: auto;
+}
+
+.pericias-tabela-wrapper .table-container thead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.pericias-tabela-wrapper .table-container th {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+.pericias-tabela-wrapper .table-container td {
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pericias-tabela-wrapper .table-container tbody tr {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pericias-tabela-wrapper .table-container tbody tr:hover {
+    background-color: rgba(201, 168, 76, 0.05);
+}
+
+.pericias-tabela-wrapper .table-container tbody tr.active {
+    background-color: rgba(201, 168, 76, 0.08);
+    border-left: 2px solid var(--gold);
+}
+
+.pericias-tabela-wrapper .table-container tbody tr.active td:first-child {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* Tags na tabela de perícias */
+.pericias-tabela-wrapper .tag-sm {
+    font-size: 0.5rem;
+    padding: 0.05rem 0.4rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.tag-sm.tag-gold {
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.tag-sm.tag-silver {
+    background: rgba(184, 196, 208, 0.1);
+    color: var(--silver);
+    border: 1px solid rgba(184, 196, 208, 0.15);
+}
+
+.tag-sm.tag-blue {
+    background: rgba(25, 60, 120, 0.2);
+    color: #6a9ac8;
+    border: 1px solid rgba(25, 60, 120, 0.2);
+}
+
+.tag-sm.tag-none {
+    background: rgba(58, 74, 90, 0.15);
+    color: var(--text-muted);
+    border: 1px solid rgba(58, 74, 90, 0.15);
+}
+
+/* ===== CONTEÚDO DA PERÍCIA ===== */
+.pericias-conteudo-wrapper {
+    background: var(--bg-card);
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 6px;
+    padding: 1.5rem;
+    max-height: 450px;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.pericias-conteudo-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.pericias-conteudo-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 2px;
+}
+
+.pericias-conteudo-wrapper::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+}
+
+/* Cabeçalho do conteúdo */
+.pericia-header {
+    text-align: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(58, 74, 90, 0.15);
+    margin-bottom: 0.75rem;
+}
+
+.pericia-header h3 {
+    color: var(--gold);
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.pericia-header .pericia-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+}
+
+.pericia-header .pericia-meta span {
+    color: var(--silver);
+}
+
+/* Descrição da perícia */
+.pericia-descricao {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Separador */
+.pericia-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold), var(--gold-dark), transparent);
+    margin: 0.5rem 0 0.75rem 0;
+    opacity: 0.3;
+    flex-shrink: 0;
+}
+
+/* Proezas */
+.pericia-proezas {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.pericia-proezas h4 {
+    color: var(--silver);
+    font-size: 0.85rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.pericia-proeza-item {
+    padding: 0.4rem 0.5rem 0.4rem 1.2rem;
+    border-bottom: 1px solid rgba(58, 74, 90, 0.08);
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.pericia-proeza-item:last-child {
+    border-bottom: none;
+}
+
+.pericia-proeza-item::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    color: var(--gold);
+    font-size: 0.6rem;
+}
+
+.pericia-proeza-item strong {
+    color: var(--gold);
+}
+
+/* Estado vazio */
+.pericia-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.pericia-empty-state span {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.4;
+}
+
+.pericia-empty-state p {
+    font-size: 0.9rem;
+}
+
+.pericia-empty-state p:last-child {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+/* Scrollbar da tabela */
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 2px;
+}
+
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+}
+
+/* ============================================ */
+/* RESPONSIVIDADE - PERÍCIAS */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .pericias-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pericias-tabela-wrapper .table-container {
+        max-height: 300px;
+    }
+
+    .pericias-conteudo-wrapper {
+        max-height: 350px;
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pericias-tabela-wrapper .table-container table {
+        font-size: 0.7rem;
+    }
+
+    .pericias-tabela-wrapper .table-container th,
+    .pericias-tabela-wrapper .table-container td {
+        padding: 0.4rem 0.5rem;
+    }
+
+    .pericia-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .pericia-descricao {
+        font-size: 0.8rem;
+    }
+
+    .pericia-proeza-item {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.3rem 0.3rem 1rem;
+    }
+
+    .pericias-conteudo-wrapper {
+        padding: 1rem;
+        max-height: 300px;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pericias-tabela-wrapper .table-container table {
+        font-size: 0.6rem;
+    }
+
+    .pericias-tabela-wrapper .table-container th,
+    .pericias-tabela-wrapper .table-container td {
+        padding: 0.3rem 0.4rem;
+    }
+
+    .pericia-header h3 {
+        font-size: 0.95rem;
+        letter-spacing: 0.1rem;
+    }
+
+    .pericia-header .pericia-meta {
+        font-size: 0.7rem;
+    }
+
+    .pericia-descricao {
+        font-size: 0.75rem;
+    }
+
+    .pericia-proeza-item {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.25rem 0.25rem 0.9rem;
+    }
+
+    .pericia-proeza-item::before {
+        font-size: 0.5rem;
+        top: 0.25rem;
+    }
+}
+
+/* ============================================ */
+/* SCROLLBAR - PERÍCIAS */
+/* ============================================ */
+
+/* Scrollbar da tabela de perícias */
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 2px;
+}
+
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+}
+
+.pericias-tabela-wrapper .table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Scrollbar do conteúdo de perícias (lado direito) */
+.pericias-conteudo-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.pericias-conteudo-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 2px;
+}
+
+.pericias-conteudo-wrapper::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+}
+
+.pericias-conteudo-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Scrollbar da lista de proezas dentro do conteúdo */
+.pericia-proezas::-webkit-scrollbar {
+    width: 3px;
+}
+
+.pericia-proezas::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 2px;
+}
+
+.pericia-proezas::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+}
+
+.pericia-proezas::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* ============================================ */
+/* SCROLLBAR - FIREFOX (suporte padrão) */
+/* ============================================ */
+
+.pericias-tabela-wrapper .table-container,
+.pericias-conteudo-wrapper,
+.pericia-proezas {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dark) var(--bg-primary);
 }
 
 .color-swatch-gold { background: var(--gold); }

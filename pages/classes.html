@@ -25,7 +25,7 @@
             <!-- ============================================ -->
             <!-- SEÇÃO: VISÃO GERAL -->
             <!-- ============================================ -->
-            <section class="general-section">
+            <section class="general-section" style="margin-bottom: 1rem;">
                 <h2>Escolhendo uma classe</h2>
                 <p class="section-description">
                     Sua classe define o papel do seu personagem no grupo, suas habilidades principais e como ele evolui ao longo da aventura.
@@ -34,12 +34,97 @@
             </section>
 
             <!-- ============================================ -->
+            <!-- SEÇÃO: PERÍCIAS -->
+            <!-- ============================================ -->
+
+            <section class="general-section" style="margin-bottom: 1rem;">
+                <h2>✦ Perícias</h2>
+                <p class="section-description">
+                    Cada classe confere um conjunto de perícias a serem escolhidas. Você recebe um número de perícias definido pela sua classe, mais um número de perícias trinadas igual ao seu modificador de Inteligência.
+                    <br><br>
+                    Você pode ganhar novas perícias treinadas com o poder Treinamento em Perícia (veja na seção Poderes) ou aumentando sua Inteligência (exceto aumentos temporários).
+                    <br><br>
+
+                    <strong style="color: var(--gold);">Testes de Perícia</strong>
+                    <br>
+                    Cada perícia permite que você execute atividades específicas, como abrir fechaduras, detectar armadilhas, persuadir NPCs, entre outras. Essas atividades são realizadas atráves de Testes de Perícia, que combinam o valor da perícia com um d20 para determinar o sucesso ou fracasso da ação.
+                    <br><br>
+                    O valor de perícia que será somado ao d20 é calculado somando metade do seu nível (arredondado para baixo) ao atributo chave da perícia. Em perícias treinadas, você ainda recebe um bônus adicional que varia de acordo com o seu nível: +2 a partir do primeiro nível, +4 a partir do 7° nível e +6 a partir do 15° nível.
+                    <br><br>
+                    <strong style="color: var(--silver);">Valor de Perícia = (Nível/2) + Modificador de Atributo + Bônus de Treinamento</strong>
+                    <br><br>
+                    
+                    <strong style="color: var(--gold);">Treinamento</strong>
+                    <br>
+                    Algumas perícias só podem ser utilizadas se o personagem estiver treinado nelas. Por exemplo, se você não é treinado em Ladinagem, não tem o conhecimento necessário para desarmar uma armadilha, independente de seu nível ou Destreza.
+                    <br><br>
+                    Quando a palavra "Treinada" aparece após o nome da perícia, significa que você só poderá usá-la se for treinado nela. Além disso, algumas perícias possuem usos específicos que exigem treinamento.
+                    <br><br>
+                    <strong style="color: var(--gold);">Penalidade de Armadura</strong>
+                    <br>
+                    Algumas perícias exigem liberdade de movimento. Quando a palavra “armadura” aparece após o nome da perícia, você sofrerá uma penalidade nos testes dela se estiver usando armadura ou escudo. 
+                </p>
+
+                <div class="pericias-container">
+                    <!-- Lado Esquerdo: Tabela -->
+                    <div class="pericias-tabela-wrapper">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Perícia</th>
+                                        <th class="col-center">Atributo<br>Chave</th>
+                                        <th class="col-center">Somente<br>Treinada?</th>
+                                        <th class="col-center">Penalidade<br>de Armadura?</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pericias-tabela-corpo">
+                                    <!-- Preenchido via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Lado Direito: Conteúdo da Perícia -->
+                    <div class="pericias-conteudo-wrapper" id="pericias-conteudo">
+                        <div class="pericia-empty-state">
+                            <span>📖</span>
+                            <p>Selecione uma perícia para ver seus detalhes.</p>
+                            <p>Clique em uma linha da tabela ao lado.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SEÇÃO: PODERES -->
+            <!-- ============================================ -->
+            <section class="general-section">
+                <h2>Poderes</h2>
+                <p class="section-description">
+                    Dentre as habilidades disponíveis, você poderá selecionar poderes, que promovem certo nível de personalização para sua classe.
+                    <br>
+                    Alguns desses poderes são exclusívos da classe que você escolheu, enquanto outros, os chamados "poderes gerais", podem ser aprendidos independente da classe.
+                    <br>
+                    Poderes gerais incluem as seguintes categorias:
+                </p>
+
+                <ul>
+                    <li><strong>Combate.</strong> Poderes que melhoram características relacionadas a combate.</li> 
+                    <li><strong>Destino.</strong> Poderes que melhoram características não relacionadas a combate.</li> 
+                    <li><strong>Magia.</strong> Poderes ligados a magias e itens mágicos.</li> 
+                    <li><strong>Concedidos.</strong> Poderes recebidos por devotos.</li> 
+                    <li><strong>Tormenta.</strong> Poderes ligados à tempestade rubra de Arton, mas que serão acessíveis em outros cenários.</li> 
+                </ul>
+            </section>
+
+            <!-- ============================================ -->
             <!-- SEÇÃO: DETALHES DA CLASSE -->
             <!-- ============================================ -->
             <section class="general-section">
                 <h2>Detalhes da Classe</h2>
                 <p class="section-description" id="classe-detalhe-desc">
-                    Selecione uma classe acima para ver seus detalhes.
+                    Abaixo estão detalhadas as classes disponíveis no sistema T20. Selecione a classe desejada para ver suas características, habilidades e poderes.
                 </p>
 
                 <!-- Título da Classe com Enfeites -->
@@ -157,6 +242,7 @@
     <!-- Scripts -->
     <script src="/t20prototipo/scripts/components.js"></script>
     <script src="/t20prototipo/scripts/main.js"></script>
+    <script src="/t20prototipo/scripts/skills.js"></script>
 
     <!-- 1. Primeiro o sistema de filtro -->
     <script src="/t20prototipo/scripts/filter/filter-system.js"></script>
