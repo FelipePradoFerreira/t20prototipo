@@ -10,6 +10,7 @@ Um aplicativo web para recordação de campanhas, guia de criação básico de T
 - **Entregas:**
   - Modificações de estilo na página de classes.
   - Criação inicial do sistema generico de filtros.
+  - Implementação do sistema de filtros na página de classes.
 
 ### Versão 1.0.0
 - **Data:** 24/08/2026

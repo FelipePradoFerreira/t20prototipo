@@ -204,25 +204,31 @@ function updatePoderesFilterForClass(classeId) {
     const className = classeId.charAt(0).toUpperCase() + classeId.slice(1);
     console.log(`📌 Classe selecionada: ${className}`);
 
-    // Filtra os poderes para mostrar apenas os da classe atual
-    const allPowers = [...classPowers];
+    // Combina todos os poderes
+    const allPowers = [...classPowers, ...combatPowers, ...fatePowers];
     
+    // Filtra: 
+    // 1. Poderes da classe atual (item.classe === className)
+    // 2. Poderes gerais (itens SEM a propriedade 'classe' - Combate, Destino, etc.)
     let filteredPowers = allPowers.filter(item => {
+        // Se o item tem 'classe', verifica se é a classe atual
         if (item.classe) {
-            return item.classe.toLowerCase() === classeId.toLowerCase();
+            return item.classe === className;
         }
+        // Se NÃO tem 'classe', é um poder geral - mostra sempre
         return true;
     });
 
-    console.log(`📊 ${filteredPowers.length} poderes encontrados para ${className}`);
+    console.log(`📊 ${filteredPowers.length} poderes encontrados para ${className} (incluindo poderes gerais)`);
 
     // Atualiza os dados do filtro
     filter.updateItems(filteredPowers);
 
-    // Marca apenas o checkbox da classe atual
-    document.querySelectorAll('[data-filter="checkbox"][data-group="tipo"]').forEach(cb => {
-        const isCurrent = cb.value.toLowerCase() === classeId.toLowerCase();
+    // Marca apenas o checkbox da classe atual e mantém os gerais visíveis
+    document.querySelectorAll('[data-filter="checkbox"][data-group="classe"]').forEach(cb => {
+        const isCurrent = cb.value === className;
         cb.checked = isCurrent;
+        // Desabilita apenas os checkboxes de outras classes (não os gerais)
         cb.disabled = !isCurrent;
         const label = cb.closest('.filter-checkbox-option');
         if (label) {
@@ -348,9 +354,6 @@ function initClasses() {
     }, 200);
 }
 
-// ============================================
-// INICIALIZAÇÃO DO FILTRO DE PODERES
-// ============================================
 function initPoderesFilter() {
     const container = document.getElementById('poderes-container');
     if (!container) {
@@ -358,38 +361,22 @@ function initPoderesFilter() {
         return;
     }
 
-    // Verifica se os dados existem
-    if (typeof classPowers === 'undefined') {
-        console.error('❌ Dados classPowers não carregados!');
-        container.innerHTML = `
-            <div class="filter-empty-state">
-                <p style="color: var(--text-muted);">Erro ao carregar dados dos poderes.</p>
-            </div>
-        `;
-        return;
-    }
-
-    // Combina todos os poderes (só classPowers por enquanto)
-    const todosPoderes = [...classPowers];
-
-    if (todosPoderes.length === 0) {
-        container.innerHTML = `
-            <div class="filter-empty-state">
-                <p style="color: var(--text-muted);">Nenhum poder disponível no momento.</p>
-            </div>
-        `;
-        return;
-    }
-
-    console.log(`📚 ${todosPoderes.length} poderes carregados`);
+    const todosPoderes = [...classPowers, ...combatPowers, ...fatePowers];
 
     const filter = new FilterSystem({
+        nomecategoria: 'Poderes Gerais',
         containerId: 'poderes-container',
         searchInputId: 'search-input',
         filterContainerId: 'filter-bar',
+        layout: 'inline',
         items: todosPoderes,
         filterConfig: {
+            // Tags visíveis (APENAS poderes gerais)
             tags: ['Combate', 'Destino'],
+            dropdownLabel: 'Poderes Gerais',
+            // Classes (invisíveis, mas funcionais)
+            classes: ['Arcanista', 'Druida', 'Bárbaro', 'Bardo', 'Clérigo', 'Guerreiro', 'Ladino', 'Mago', 'Paladino', 'Caçador'],
+            // Checkboxes (classes ficam invisíveis)
             checkboxes: [
                 { label: 'Arcanista', value: 'Arcanista', group: 'classe' },
                 { label: 'Druida', value: 'Druida', group: 'classe' }
@@ -416,6 +403,7 @@ function initPoderesFilter() {
             return `${item.nome} ${item.descricao} ${(item.tags || []).join(' ')} ${item.classe || ''} ${item.tipo || ''}`;
         },
         getCheckboxValue: function(item, group) {
+            if (group === 'classe') return item.classe || '';
             if (group === 'tipo') return item.tipo || '';
             return item[group] || '';
         },

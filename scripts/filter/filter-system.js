@@ -8,6 +8,7 @@
  *     containerId: 'poderes-container',
  *     searchInputId: 'search-input',
  *     filterContainerId: 'filter-options',
+ *     layout: 'inline', // 'default' | 'inline' | 'compact'
  *     items: dados,
  *     renderItem: function(item) { return html; },
  *     filterConfig: { ... }
@@ -23,6 +24,7 @@ class FilterSystem {
         this.filterContainer = document.getElementById(config.filterContainerId);
         this.renderItem = config.renderItem || this.defaultRender;
         this.filterConfig = config.filterConfig || {};
+        this.layout = config.layout || 'default'; // 'default' | 'inline' | 'compact'
         this.activeFilters = {
             search: '',
             tags: [],
@@ -34,20 +36,24 @@ class FilterSystem {
     }
 
     init() {
-    this.render();
-    if (this.filterContainer) {
-        this.buildFilters();
+        this.render();
+        if (this.filterContainer) {
+            this.buildFilters();
+        }
     }
-}
+
+// ============================================
+// CONSTRUÇÃO DOS FILTROS (COM SUPORTE A LAYOUTS)
+// ============================================
+buildFilters() {
+    const config = this.filterConfig;
+    let html = '';
 
     // ============================================
-    // CONSTRUÇÃO DOS FILTROS
+    // LAYOUT PADRÃO (FILTROS EM COLUNA)
     // ============================================
-    buildFilters() {
-        const config = this.filterConfig;
-        let html = '';
-
-        // === FILTRO DE TAGS (Dropdown) ===
+    if (this.layout === 'default') {
+        // Tags (Dropdown)
         if (config.tags && config.tags.length > 0) {
             html += `
                 <div class="filter-group">
@@ -69,7 +75,7 @@ class FilterSystem {
             `;
         }
 
-        // === FILTRO DE CHECKBOX (Categorias) ===
+        // Checkboxes
         if (config.checkboxes && config.checkboxes.length > 0) {
             html += `
                 <div class="filter-group">
@@ -86,7 +92,7 @@ class FilterSystem {
             `;
         }
 
-        // === FILTRO DE TEXTO (Busca) ===
+        // Busca
         html += `
             <div class="filter-group filter-search-group">
                 <label class="filter-label">Buscar</label>
@@ -94,65 +100,150 @@ class FilterSystem {
             </div>
         `;
 
-        // === BOTÃO DE LIMPAR ===
+        // Ações
         html += `
             <div class="filter-group filter-actions">
                 <button class="filter-clear-btn" id="filter-clear-btn">Limpar Filtros</button>
-                <span class="filter-results-count" id="filter-results-count">${this.filteredItems.length} resultados</span>
+                
+            </div>
+        `;
+    }
+
+    // ============================================
+    // LAYOUT INLINE (BARRA ÚNICA: BUSCA | DROPDOWN | LIMPAR)
+    // ============================================
+    else if (this.layout === 'inline') {
+        // Busca
+        html += `
+            <div class="filter-search-group">
+                <input type="text" class="filter-search-input" id="search-input" placeholder="Buscar poder..." />
             </div>
         `;
 
-        if (this.filterContainer) {
-            this.filterContainer.innerHTML = html;
-            this.bindFilterEvents();
-        }
-    }
+        // Dropdown de Categorias (Poderes Gerais) - CORRIGIDO
+        const tagsGerais = config.tags ? config.tags.filter(tag => 
+            !config.classes || !config.classes.includes(tag)
+        ) : [];
 
-    // ============================================
-    // EVENTOS DOS FILTROS
-    // ============================================
-    bindFilterEvents() {
-        // Dropdown de Tags
-        const dropdownBtn = document.getElementById('tags-dropdown-btn');
-        const dropdownContent = document.getElementById('tags-dropdown-content');
-        if (dropdownBtn && dropdownContent) {
-            dropdownBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                dropdownContent.classList.toggle('open');
-            });
-            document.addEventListener('click', function() {
-                dropdownContent.classList.remove('open');
-            });
-        }
-
-        // Checkboxes de Tags
-        document.querySelectorAll('[data-filter="tag"]').forEach(cb => {
-            cb.addEventListener('change', () => this.applyFilters());
-        });
-
-        // Checkboxes de Categorias
-        document.querySelectorAll('[data-filter="checkbox"]').forEach(cb => {
-            cb.addEventListener('change', () => this.applyFilters());
-        });
-
-        // Input de Busca
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', () => this.applyFilters());
+        if (tagsGerais.length > 0) {
+            html += `
+                <div class="filter-tags-dropdown">
+                    <button class="filter-dropdown-btn" id="tags-dropdown-btn">
+                        ${config.dropdownLabel || 'Categorias'} <span class="filter-arrow">▼</span>
+                    </button>
+                    <div class="filter-dropdown-content" id="tags-dropdown-content">
+                        ${tagsGerais.map(tag => `
+                            <label class="filter-tag-option">
+                                <input type="checkbox" value="${tag}" data-filter="checkbox" data-group="tipo">
+                                <span class="tag tag-${tag}">${tag}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
         }
 
         // Botão Limpar
-        const clearBtn = document.getElementById('filter-clear-btn');
-        if (clearBtn) {
-            clearBtn.addEventListener('click', () => this.clearFilters());
+        html += `
+            <div class="filter-actions">
+                <button class="filter-clear-btn" id="filter-clear-btn">Limpar</button>
+            </div>
+        `;
+
+        // CHECKBOXES DE CLASSE (INVISÍVEIS, mas funcionais)
+        if (config.checkboxes && config.checkboxes.length > 0) {
+            html += `
+                <div class="filter-checkboxes-hidden" style="display: none;">
+                    ${config.checkboxes.map(cb => `
+                        <label class="filter-checkbox-option">
+                            <input type="checkbox" value="${cb.value}" data-filter="checkbox" data-group="${cb.group || 'default'}">
+                            ${cb.label}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
         }
+
+        
     }
+
+    // ============================================
+    // LAYOUT COMPACTO (APENAS BUSCA E LIMPAR)
+    // ============================================
+    else if (this.layout === 'compact') {
+        html += `
+            <div class="filter-search-group">
+                <input type="text" class="filter-search-input" id="search-input" placeholder="Buscar..." />
+            </div>
+            <div class="filter-actions">
+                <button class="filter-clear-btn" id="filter-clear-btn">Limpar</button>
+            </div>
+            <div class="filter-results-count-wrapper">
+                <span class="filter-results-count" id="filter-results-count">${this.filteredItems.length} resultados</span>
+            </div>
+        `;
+    }
+
+    if (this.filterContainer) {
+        this.filterContainer.className = `filter-bar layout-${this.layout}`;
+        this.filterContainer.innerHTML = html;
+        this.bindFilterEvents();
+    }
+}
+
+bindFilterEvents() {
+    // Dropdown de Tags
+    const dropdownBtn = document.getElementById('tags-dropdown-btn');
+    const dropdownContent = document.getElementById('tags-dropdown-content');
+    
+    if (dropdownBtn && dropdownContent) {
+        // Abre/fecha ao clicar no botão
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownContent.classList.toggle('open');
+        });
+
+        // Impede que cliques dentro do conteúdo fechem o dropdown
+        dropdownContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Fecha apenas ao clicar fora
+        document.addEventListener('click', function(e) {
+            const isClickInside = dropdownBtn.contains(e.target) || dropdownContent.contains(e.target);
+            if (!isClickInside) {
+                dropdownContent.classList.remove('open');
+            }
+        });
+    }
+
+    // Checkboxes (data-filter="checkbox")
+    document.querySelectorAll('[data-filter="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', () => this.applyFilters());
+    });
+
+    // Checkboxes (data-filter="tag" - legado)
+    document.querySelectorAll('[data-filter="tag"]').forEach(cb => {
+        cb.addEventListener('change', () => this.applyFilters());
+    });
+
+    // Input de Busca
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => this.applyFilters());
+    }
+
+    // Botão Limpar
+    const clearBtn = document.getElementById('filter-clear-btn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => this.clearFilters());
+    }
+}
 
     // ============================================
     // APLICAÇÃO DOS FILTROS
     // ============================================
     applyFilters() {
-        // Coleta valores dos filtros
         const searchInput = document.getElementById('search-input');
         const searchValue = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
@@ -172,7 +263,6 @@ class FilterSystem {
         this.activeFilters.tags = selectedTags;
         this.activeFilters.checkboxes = selectedCheckboxes;
 
-        // Filtra os itens
         this.filteredItems = this.items.filter(item => {
             return this.matchFilters(item, searchValue, selectedTags, selectedCheckboxes);
         });
@@ -186,42 +276,72 @@ class FilterSystem {
     }
 
     // ============================================
-    // LÓGICA DE FILTRAGEM (SOBRESCREVA PARA PERSONALIZAR)
+    // LÓGICA DE FILTRAGEM
     // ============================================
-    matchFilters(item, searchValue, selectedTags, selectedCheckboxes) {
-        // Busca por texto (nome, descrição, etc.)
-        if (searchValue) {
-            const searchableText = this.getSearchableText(item).toLowerCase();
-            if (!searchableText.includes(searchValue)) return false;
-        }
-
-        // Filtro por Tags
-        if (selectedTags.length > 0) {
-            const itemTags = item.tags || [];
-            if (!selectedTags.some(tag => itemTags.includes(tag))) return false;
-        }
-
-        // Filtro por Checkboxes (categorias)
-        for (const [group, values] of Object.entries(selectedCheckboxes)) {
-            if (values.length > 0) {
-                const itemValue = this.getCheckboxValue(item, group);
-                if (!values.includes(itemValue)) return false;
-            }
-        }
-
-        return true;
+matchFilters(item, searchValue, selectedTags, selectedCheckboxes) {
+    // Busca por texto
+    if (searchValue) {
+        const searchableText = this.getSearchableText(item).toLowerCase();
+        if (!searchableText.includes(searchValue)) return false;
     }
+
+    // Filtro por Tags
+    if (selectedTags.length > 0) {
+        const itemTags = item.tags || [];
+        if (!selectedTags.some(tag => itemTags.includes(tag))) return false;
+    }
+
+    // ============================================
+    // FILTRO POR CHECKBOXES
+    // ============================================
+    
+    // Extrai os filtros
+    let classeSelecionada = null;
+    let tiposSelecionados = [];
+    
+    for (const [group, values] of Object.entries(selectedCheckboxes)) {
+        if (values.length === 0) continue;
+        
+        if (group === 'classe') {
+            classeSelecionada = values[0];
+        } else if (group === 'tipo') {
+            tiposSelecionados = values;
+        }
+    }
+
+    // ============================================
+    // REGRA: PODERES DE CLASSE (têm 'classe')
+    // ============================================
+    if (item.classe) {
+        // Se a classe selecionada corresponde, SEMPRE mostra
+        if (classeSelecionada && item.classe === classeSelecionada) {
+            return true; // ✅ SEMPRE mostra, independente dos tipos marcados
+        }
+        return false; // ❌ Não é da classe selecionada
+    }
+    
+    // ============================================
+    // REGRA: PODERES GERAIS (NÃO têm 'classe')
+    // ============================================
+    if (!item.classe) {
+        // Só mostra se houver tipos selecionados E o tipo do item estiver entre eles
+        if (tiposSelecionados.length > 0) {
+            return tiposSelecionados.includes(item.tipo || '');
+        }
+        return false; // Sem tipos selecionados, não mostra gerais
+    }
+
+    return true;
+}
 
     // ============================================
     // MÉTODOS PARA SOBRESCREVER (PERSONALIZAÇÃO)
     // ============================================
     getSearchableText(item) {
-        // Sobrescreva para personalizar o que é buscado
         return `${item.nome || ''} ${item.descricao || ''} ${(item.tags || []).join(' ')}`;
     }
 
     getCheckboxValue(item, group) {
-        // Sobrescreva para personalizar a lógica de checkbox
         return item[group] || '';
     }
 
@@ -264,18 +384,25 @@ class FilterSystem {
         }
     }
 
-    clearFilters() {
-        // Limpa input de busca
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) searchInput.value = '';
+clearFilters() {
+    // Limpa input de busca
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.value = '';
 
-        // Desmarca todas as checkboxes
-        document.querySelectorAll('[data-filter="tag"]:checked, [data-filter="checkbox"]:checked').forEach(cb => {
-            cb.checked = false;
-        });
+    // Desmarca apenas as checkboxes de TIPO (Combate, Destino, etc.)
+    // NÃO desmarca as checkboxes de CLASSE
+    document.querySelectorAll('[data-filter="checkbox"][data-group="tipo"]:checked').forEach(cb => {
+        cb.checked = false;
+    });
 
-        this.applyFilters();
-    }
+    // Também limpa tags legado (se houver)
+    document.querySelectorAll('[data-filter="tag"]:checked').forEach(cb => {
+        cb.checked = false;
+    });
+
+    // Reaplica os filtros (mantém a classe selecionada)
+    this.applyFilters();
+}
 
     // ============================================
     // ATUALIZAR DADOS
@@ -290,9 +417,6 @@ class FilterSystem {
     // ATUALIZAR FILTROS EXTERNAMENTE
     // ============================================
     updateFiltersFromOutside(filterOptions) {
-        // filterOptions: { tags: [...], checkboxes: {...} }
-        
-        // Atualiza os checkboxes
         if (filterOptions.checkboxes) {
             document.querySelectorAll('[data-filter="checkbox"]').forEach(cb => {
                 const group = cb.dataset.group || 'default';
@@ -304,14 +428,12 @@ class FilterSystem {
             });
         }
 
-        // Atualiza as tags (se necessário)
         if (filterOptions.tags) {
             document.querySelectorAll('[data-filter="tag"]').forEach(cb => {
                 cb.checked = filterOptions.tags.includes(cb.value);
             });
         }
 
-        // Reaplica os filtros
         this.applyFilters();
     }
 

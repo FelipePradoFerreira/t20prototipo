@@ -1808,66 +1808,82 @@ a:hover {
 }
 
 /* ============================================ */
-/* SISTEMA DE FILTRO E PESQUISA */
+/* SISTEMA DE FILTRO E PESQUISA - ESTILIZADO */
 /* ============================================ */
 
 .filter-system {
-    margin: 1.5rem 0;
+    margin: 2rem 0;
 }
 
-/* Barra de Filtros */
+/* ===== BARRA DE FILTROS ===== */
 .filter-bar {
     background: var(--bg-card);
     border: 1px solid rgba(58, 74, 90, 0.3);
-    border-radius: 4px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.5rem 2rem;
     align-items: flex-end;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.filter-bar::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
 }
 
 .filter-group {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    flex: 1 1 200px;
-    min-width: 150px;
+    gap: 0.4rem;
+    flex: 1 1 180px;
+    min-width: 140px;
 }
 
 .filter-label {
     color: var(--silver);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.15rem;
     font-weight: 700;
+    padding-left: 0.2rem;
 }
 
-/* Input de Busca */
+/* ===== INPUT DE BUSCA ===== */
 .filter-search-input {
     background: var(--bg-primary);
     border: 1px solid rgba(58, 74, 90, 0.3);
     border-radius: 4px;
-    padding: 0.6rem 1rem;
+    padding: 0.7rem 1rem;
     color: var(--text-light);
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
     width: 100%;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .filter-search-input:focus {
     outline: none;
     border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.05);
 }
 
 .filter-search-input::placeholder {
     color: var(--text-muted);
-    opacity: 0.6;
+    opacity: 0.5;
+    font-size: 0.75rem;
 }
 
-/* Dropdown de Tags */
+/* ===== DROPDOWN DE TAGS ===== */
 .filter-tags-dropdown {
     position: relative;
     width: 100%;
@@ -1877,7 +1893,7 @@ a:hover {
     background: var(--bg-primary);
     border: 1px solid rgba(58, 74, 90, 0.3);
     border-radius: 4px;
-    padding: 0.6rem 1rem;
+    padding: 0.7rem 1rem;
     color: var(--text-light);
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
@@ -1886,34 +1902,35 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .filter-dropdown-btn:hover {
     border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.02);
 }
 
 .filter-dropdown-btn .filter-arrow {
     color: var(--gold);
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     transition: transform 0.3s ease;
+    margin-left: 0.5rem;
 }
 
 .filter-dropdown-content {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 4px);
     left: 0;
     right: 0;
     background: var(--bg-card);
     border: 1px solid rgba(58, 74, 90, 0.3);
-    border-radius: 4px;
-    margin-top: 4px;
-    padding: 0.5rem;
+    border-radius: 6px;
+    padding: 0.6rem;
     max-height: 200px;
     overflow-y: auto;
     z-index: 100;
     display: none;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
 }
 
 .filter-dropdown-content.open {
@@ -1923,11 +1940,11 @@ a:hover {
 .filter-tag-option {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.3rem 0.5rem;
+    gap: 0.6rem;
+    padding: 0.4rem 0.6rem;
     cursor: pointer;
-    border-radius: 3px;
-    transition: background 0.2s ease;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 .filter-tag-option:hover {
@@ -1936,20 +1953,21 @@ a:hover {
 
 .filter-tag-option input[type="checkbox"] {
     accent-color: var(--gold);
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     cursor: pointer;
 }
 
 .filter-tag-option .tag {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
 }
 
-/* Checkboxes de Categorias */
+/* ===== CHECKBOXES DE CATEGORIAS ===== */
 .filter-checkboxes {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
+    gap: 0.5rem 1.2rem;
+    padding-top: 0.2rem;
 }
 
 .filter-checkbox-option {
@@ -1957,28 +1975,41 @@ a:hover {
     align-items: center;
     gap: 0.4rem;
     color: var(--text-light);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
-}
-
-.filter-checkbox-option input[type="checkbox"] {
-    accent-color: var(--gold);
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
 }
 
 .filter-checkbox-option:hover {
     color: var(--gold);
 }
 
-/* Ações do Filtro */
+.filter-checkbox-option input[type="checkbox"] {
+    accent-color: var(--gold);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.filter-checkbox-option.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.filter-checkbox-option.disabled:hover {
+    color: var(--text-muted);
+}
+
+/* ===== AÇÕES DO FILTRO ===== */
 .filter-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
     flex: 0 1 auto;
+    min-width: 140px;
 }
 
 .filter-clear-btn {
@@ -1988,22 +2019,28 @@ a:hover {
     padding: 0.5rem 1.2rem;
     color: var(--text-muted);
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.08rem;
     white-space: nowrap;
 }
 
 .filter-clear-btn:hover {
     border-color: var(--gold);
     color: var(--gold);
+    background: rgba(201, 168, 76, 0.02);
 }
 
 .filter-results-count {
-    color: var(--text-muted);
-    font-size: 0.85rem;
+    color: var(--silver);
+    font-size: 0.8rem;
     white-space: nowrap;
+    letter-spacing: 0.05rem;
+    background: rgba(201, 168, 76, 0.05);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(201, 168, 76, 0.1);
 }
 
 /* ============================================ */
@@ -2012,66 +2049,108 @@ a:hover {
 
 .filter-results {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
 }
 
 .filter-item {
     background: var(--bg-card);
     border: 1px solid rgba(58, 74, 90, 0.2);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 1.2rem 1.5rem;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.filter-item::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .filter-item:hover {
     border-color: var(--gold);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.06);
+}
+
+.filter-item:hover::before {
+    opacity: 0.5;
+}
+
+.filter-item .filter-item-meta {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.3rem;
+    display: block;
+    text-transform: uppercase;
 }
 
 .filter-item h3 {
     color: var(--gold);
     font-size: 1rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.08rem;
     margin-bottom: 0.3rem;
 }
 
 .filter-item p {
     color: var(--text-light);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.6;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .filter-item-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem;
+    margin-top: 0.3rem;
 }
 
 .filter-item-tags .tag {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
+    padding: 0.1rem 0.5rem;
 }
 
-.filter-item .filter-item-meta {
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    margin-bottom: 0.3rem;
-    display: block;
-}
-
-/* Estado vazio */
+/* ===== ESTADO VAZIO ===== */
 .filter-empty-state {
     text-align: center;
     padding: 3rem 2rem;
     background: var(--bg-card);
-    border: 1px solid rgba(58, 74, 90, 0.2);
-    border-radius: 4px;
+    border: 1px solid rgba(58, 74, 90, 0.15);
+    border-radius: 6px;
+    grid-column: 1 / -1;
 }
 
-/* Scrollbar do dropdown */
+.filter-empty-state span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.filter-empty-state p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.filter-empty-state p:last-child {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 0.3rem;
+}
+
+/* ============================================ */
+/* SCROLLBAR DO DROPDOWN */
+/* ============================================ */
 .filter-dropdown-content::-webkit-scrollbar {
     width: 4px;
 }
@@ -2086,14 +2165,19 @@ a:hover {
     border-radius: 2px;
 }
 
+.filter-dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
 /* ============================================ */
-/* RESPONSIVIDADE - FILTROS */
+/* RESPONSIVIDADE */
 /* ============================================ */
 @media (max-width: 768px) {
     .filter-bar {
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem;
+        padding: 1.2rem;
+        border-radius: 6px;
     }
 
     .filter-group {
@@ -2113,7 +2197,8 @@ a:hover {
 
 @media (max-width: 480px) {
     .filter-bar {
-        padding: 0.75rem;
+        padding: 0.8rem;
+        gap: 0.8rem;
     }
 
     .filter-checkboxes {
@@ -2129,11 +2214,289 @@ a:hover {
 
     .filter-clear-btn {
         text-align: center;
+        width: 100%;
     }
 
     .filter-results-count {
         text-align: center;
+        padding: 0.2rem 0.5rem;
     }
+
+    .filter-item {
+        padding: 1rem;
+    }
+
+    .filter-item h3 {
+        font-size: 0.9rem;
+    }
+
+    .filter-item p {
+        font-size: 0.75rem;
+    }
+}
+
+/* ===== LAYOUT PADRÃO ===== */
+.filter-bar.layout-default {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+/* ============================================ */
+/* FILTRO - LAYOUT INLINE */
+/* ============================================ */
+
+.filter-bar.layout-inline {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.filter-bar.layout-inline::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+}
+
+/* Busca - 60% */
+.filter-bar.layout-inline .filter-search-group {
+    flex: 0 0 60%;
+    min-width: 0;
+}
+
+.filter-bar.layout-inline .filter-search-input {
+    background: var(--bg-primary);
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    color: var(--text-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    width: 100%;
+    height: 42px;
+    transition: all 0.3s ease;
+}
+
+.filter-bar.layout-inline .filter-search-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.05);
+}
+
+.filter-bar.layout-inline .filter-search-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+    font-size: 0.75rem;
+}
+
+/* Dropdown - 25% */
+.filter-bar.layout-inline .filter-tags-dropdown {
+    flex: 0 0 25%;
+    min-width: 0;
+    position: relative;
+}
+
+.filter-bar.layout-inline .filter-dropdown-btn {
+    background: var(--bg-primary);
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 4px;
+    padding: 0 1rem;
+    color: var(--text-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    width: 100%;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-bar.layout-inline .filter-dropdown-btn:hover {
+    border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.02);
+}
+
+.filter-bar.layout-inline .filter-dropdown-btn .filter-arrow {
+    color: var(--gold);
+    font-size: 0.6rem;
+    transition: transform 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+/* Botão Limpar - restante (~15%) */
+.filter-bar.layout-inline .filter-actions {
+    flex: 1;
+    min-width: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-bar.layout-inline .filter-clear-btn {
+    background: transparent;
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 4px;
+    padding: 0 1.2rem;
+    height: 42px;
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.08rem;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 140px;
+}
+
+.filter-bar.layout-inline .filter-clear-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201, 168, 76, 0.02);
+}
+
+/* ============================================ */
+/* DROPDOWN CONTENT */
+/* ============================================ */
+.filter-bar.layout-inline .filter-dropdown-content {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid rgba(58, 74, 90, 0.3);
+    border-radius: 6px;
+    padding: 0.6rem;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    min-width: 100%;
+}
+
+.filter-bar.layout-inline .filter-dropdown-content.open {
+    display: block;
+}
+
+/* Contador de Resultados (fora da barra) */
+.filter-results-count-wrapper {
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.filter-results-count {
+    color: var(--silver);
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+    background: rgba(201, 168, 76, 0.05);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    display: inline-block;
+}
+
+/* ============================================ */
+/* RESPONSIVIDADE - LAYOUT INLINE */
+/* ============================================ */
+@media (max-width: 768px) {
+    .filter-bar.layout-inline {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .filter-bar.layout-inline .filter-search-group {
+        flex: 1 1 100%;
+        min-width: 100%;
+        order: 1;
+    }
+
+    .filter-bar.layout-inline .filter-tags-dropdown {
+        flex: 1;
+        min-width: 120px;
+        order: 2;
+    }
+
+    .filter-bar.layout-inline .filter-actions {
+        flex: 0 1 auto;
+        order: 3;
+    }
+
+    .filter-bar.layout-inline .filter-clear-btn {
+        max-width: 100px;
+        font-size: 0.65rem;
+        padding: 0 0.8rem;
+    }
+
+    .filter-bar.layout-inline .filter-dropdown-btn {
+        font-size: 0.7rem;
+        padding: 0 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-bar.layout-inline {
+        padding: 0.6rem 0.8rem;
+        gap: 0.5rem;
+    }
+
+    .filter-bar.layout-inline .filter-search-input {
+        height: 36px;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .filter-bar.layout-inline .filter-dropdown-btn {
+        height: 36px;
+        font-size: 0.65rem;
+        padding: 0 0.6rem;
+    }
+
+    .filter-bar.layout-inline .filter-clear-btn {
+        height: 36px;
+        font-size: 0.6rem;
+        padding: 0 0.6rem;
+        max-width: 80px;
+    }
+
+    .filter-bar.layout-inline .filter-actions {
+        flex: 0 1 auto;
+    }
+}
+
+/* ===== LAYOUT COMPACTO ===== */
+.filter-bar.layout-compact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+}
+
+.filter-bar.layout-compact .filter-search-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-bar.layout-compact .filter-clear-btn {
+    height: 36px;
+    font-size: 0.65rem;
 }
 
 .color-swatch-gold { background: var(--gold); }
