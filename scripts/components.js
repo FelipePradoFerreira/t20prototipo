@@ -20,7 +20,7 @@ function createHeader() {
                         <li><a href="/t20prototipo/index.html" class="nav-link">Início</a></li>
                         <li><a href="/t20prototipo/pages/races.html" class="nav-link">Raças</a></li>
                         <li><a href="/t20prototipo/pages/classes.html" class="nav-link">Classes</a></li>
-                        <li><a href="/t20prototipo/pages/test.html" class="nav-link">Testes</a></li>
+                        <li><a href="/t20prototipo/pages/origins.html" class="nav-link">Origens</a></li>
                     </ul>
                 </nav>
             </div>

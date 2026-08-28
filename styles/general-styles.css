@@ -2064,7 +2064,6 @@ a:hover {
 }
 
 .filter-item::before {
-    content: '';
     position: absolute;
     top: -1px;
     left: 20%;
@@ -3109,6 +3108,181 @@ ol li::before {
 .pericia-proezas {
     scrollbar-width: thin;
     scrollbar-color: var(--gold-dark) var(--bg-primary);
+}
+
+/* ============================================ */
+/* ORIGENS - ESTILOS DOS ITENS */
+/* ============================================ */
+
+.origem-item {
+    background: var(--bg-card);
+    border: 1px solid rgba(58, 74, 90, 0.2);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.origem-item::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.origem-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.06);
+}
+
+.origem-item:hover::before {
+    opacity: 0.5;
+}
+
+.origem-item h3 {
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 0.15rem;
+    margin-bottom: 0.3rem;
+}
+
+.origem-item .origem-descricao {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
+
+.origem-item .origem-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), var(--gold), var(--gold-dark), transparent);
+    margin: 0.5rem 0 0.75rem 0;
+    opacity: 0.2;
+}
+
+/* ITENS E BENEFÍCIOS - UM ABAIXO DO OUTRO */
+.origem-item .origem-itens {
+    margin-bottom: 0.75rem;
+}
+
+.origem-item .origem-itens p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0.2rem 0;
+    padding-left: 0.5rem;
+}
+
+.origem-item .origem-beneficios-lista {
+    margin-bottom: 0.5rem;
+}
+
+.origem-item .origem-beneficios-lista p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0.2rem 0;
+    padding-left: 0.5rem;
+}
+
+.origem-item .origem-beneficios-lista strong {
+    color: var(--silver);
+}
+
+.origem-item .origem-poder-unico {
+    margin-top: 0.25rem;
+}
+
+.origem-item .origem-poder-unico p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0.2rem 0 0 0;
+    padding-left: 0.5rem;
+}
+
+/* ============================================ */
+/* RESPONSIVIDADE - ORIGENS */
+/* ============================================ */
+@media (max-width: 768px) {
+    .origem-item {
+        padding: 1.2rem;
+    }
+
+    .origem-item h3 {
+        font-size: 1rem;
+    }
+
+    .origem-item .origem-descricao {
+        font-size: 0.85rem;
+    }
+
+    .origem-item .origem-itens p,
+    .origem-item .origem-beneficios-lista p,
+    .origem-item .origem-poder-unico p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .origem-item {
+        padding: 1rem;
+    }
+
+    .origem-item h3 {
+        font-size: 0.9rem;
+        letter-spacing: 0.1rem;
+    }
+
+    .origem-item .origem-descricao {
+        font-size: 0.8rem;
+    }
+
+    .origem-item .origem-itens p,
+    .origem-item .origem-beneficios-lista p,
+    .origem-item .origem-poder-unico p {
+        font-size: 0.75rem;
+    }
+}
+
+.origem-poder-unico {
+    margin-top: 0.25rem;
+    
+}
+
+.origem-poder-unico strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.2rem;
+    text-align: center;
+}
+
+.origem-poder-unico p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Remove qualquer ✦ que apareça no poder único */
+.origem-poder-unico strong::before,
+.origem-poder-unico::before,
+.origem-item .origem-poder-unico strong::before,
+.origem-item .origem-poder-unico::before {
+    content: none !important;
+}
+
+/* Remove de itens e benefícios também, se quiser */
+.origem-item .origem-itens strong::before,
+.origem-item .origem-beneficios-lista strong::before {
+    content: none !important;
 }
 
 .color-swatch-gold { background: var(--gold); }
