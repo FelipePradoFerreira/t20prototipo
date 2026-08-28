@@ -5,6 +5,11 @@
 Um aplicativo web para recordação de campanhas, guia de criação básico de T20.
 
 ## 📋 Changelog
+### Versão 1.0.3
+- **Data:** 28/08/2026
+- **Entregas:**
+  - Adição da página de origens com filtro próprio.
+
 ### Versão 1.0.2
 - **Data:** 26/08/2026
 - **Entregas:**
